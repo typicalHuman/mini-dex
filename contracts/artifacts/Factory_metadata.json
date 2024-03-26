@@ -1,0 +1,132 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "POOL_ALREADY_EXISTS",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "TOKENS_ARE_DUPLICATES",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "TOKENS_NOT_SORTED",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token0",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "token1",
+						"type": "address"
+					}
+				],
+				"name": "createPool",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token0",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "token1",
+						"type": "address"
+					}
+				],
+				"name": "getPool",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Factory.sol": "Factory"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Factory.sol": {
+			"keccak256": "0x137d632cc98047e7f54ee68c6bd18a86b40e2d52ec0354df973e02c29afdab5d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a520c87f9ecd45fee1aa2d183a846a8ab0a6034273f59ff41580a485378254c0",
+				"dweb:/ipfs/QmchMCoYGr1soiX1bziVBvb2USPcpYohaY3qUehpSvsSXD"
+			]
+		},
+		"contracts/LP.sol": {
+			"keccak256": "0xe601925a38badfbfde4d9d5bbbffb47085be2669880a41c6f4d0fc2510962438",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0073dabac2b6ea4c7eac509beddfa3673f515ccfeb3139133cceeb5aa540e589",
+				"dweb:/ipfs/QmPiJGkJvkMC4HhXbqgtL9cqX122pPSTE2t3R8m3vKb4xY"
+			]
+		},
+		"contracts/Pool.sol": {
+			"keccak256": "0x391fe0eab702fcc6326027d1b40afcf87f43d2292fd04f02074cb8b4b7af3110",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://72190fadb1c2983bb1b706ff145c5cd92cd986cbd1be1029a5b628cc9f506d2e",
+				"dweb:/ipfs/Qmdw1zERKpfjpkgFZteezi37RE2D6dzN2JfVo3Jg54TKPR"
+			]
+		},
+		"https://github.com/Vectorized/solady/blob/e4a14a5b365b353352f7c38e699a2bc9363d6576/src/tokens/ERC20.sol": {
+			"keccak256": "0xb4a3f9ba8a05107f7370de42cff57f3ad26dafd438712c11531a5892de2f59e0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f0a9ca06e3cf6dea1f9a4c5599581573b7d81cd64dc3afb582f325ccf5fdd6dc",
+				"dweb:/ipfs/Qmb9r5dDceNF4W8S5u6i85RsNTgE5XG9HbTXkyS25ad3C6"
+			]
+		}
+	},
+	"version": 1
+}
