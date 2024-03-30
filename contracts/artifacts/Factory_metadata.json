@@ -112,11 +112,19 @@
 			]
 		},
 		"contracts/Pool.sol": {
-			"keccak256": "0x391fe0eab702fcc6326027d1b40afcf87f43d2292fd04f02074cb8b4b7af3110",
+			"keccak256": "0x071e4d6cbf87bcd3aba8a0a57efae1521e02d95b8d751a3d2662265e656f7c92",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://72190fadb1c2983bb1b706ff145c5cd92cd986cbd1be1029a5b628cc9f506d2e",
-				"dweb:/ipfs/Qmdw1zERKpfjpkgFZteezi37RE2D6dzN2JfVo3Jg54TKPR"
+				"bzz-raw://e592d121d3118ff3229130ec6a8f813693aebb64c49015689980885f3787b29c",
+				"dweb:/ipfs/QmS57zETY5RHaKQ3iJohoRYuHoFHsXQQ2FxK85NHxHD8Vd"
+			]
+		},
+		"contracts/interfaces/IPool.sol": {
+			"keccak256": "0xc55318cdd28fcd5ea6dca9c93539394d404e2bb3e82f9371ea3c622d08894d7c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://460c6f48af45e80ba92168811b9bec79f12457b28e07e8beee314d98e023e9de",
+				"dweb:/ipfs/QmameDMANPRJt7jjKuYNsksuvxnbYYv8Q8DuMKbTkmgtXU"
 			]
 		},
 		"https://github.com/Vectorized/solady/blob/e4a14a5b365b353352f7c38e699a2bc9363d6576/src/tokens/ERC20.sol": {

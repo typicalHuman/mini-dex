@@ -23,12 +23,27 @@
 			},
 			{
 				"inputs": [],
+				"name": "AMOUNT_EQUALS_ZERO",
+				"type": "error"
+			},
+			{
+				"inputs": [],
 				"name": "AllowanceOverflow",
 				"type": "error"
 			},
 			{
 				"inputs": [],
 				"name": "AllowanceUnderflow",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INSUFFICIENT_AMOUNT",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INSUFFICIENT_BALANCE",
 				"type": "error"
 			},
 			{
@@ -48,7 +63,22 @@
 			},
 			{
 				"inputs": [],
+				"name": "NOT_ENOUGH_BALANCE",
+				"type": "error"
+			},
+			{
+				"inputs": [],
 				"name": "PermitExpired",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "TOKEN_NOT_INSIDE_POOL",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "TRANSFER_FAILED",
 				"type": "error"
 			},
 			{
@@ -83,6 +113,18 @@
 			},
 			{
 				"anonymous": false,
+				"inputs": [],
+				"name": "Deposit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "Swap",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
 				"inputs": [
 					{
 						"indexed": true,
@@ -104,6 +146,12 @@
 					}
 				],
 				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "Withdraw",
 				"type": "event"
 			},
 			{
@@ -200,6 +248,30 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount0",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount1",
+						"type": "uint256"
+					}
+				],
+				"name": "deposit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "factory",
 				"outputs": [
@@ -288,6 +360,54 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "quote",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "swap",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "symbol",
 				"outputs": [
@@ -361,6 +481,30 @@
 						"internalType": "bool",
 						"name": "",
 						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "lpAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -485,11 +629,19 @@
 			]
 		},
 		"contracts/Pool.sol": {
-			"keccak256": "0x391fe0eab702fcc6326027d1b40afcf87f43d2292fd04f02074cb8b4b7af3110",
+			"keccak256": "0x933f6a6102e05a2f5832c6d2d062b184412fb0bde50d984f35253cab86824d41",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://72190fadb1c2983bb1b706ff145c5cd92cd986cbd1be1029a5b628cc9f506d2e",
-				"dweb:/ipfs/Qmdw1zERKpfjpkgFZteezi37RE2D6dzN2JfVo3Jg54TKPR"
+				"bzz-raw://7c67809df1b5fd0680db5fb435d3b4fde7252b0914ebd6277883bef6fa3f64c8",
+				"dweb:/ipfs/QmXcEystjpcnJJozqVasxbb6jantdj3JDqg11GVEGrHVad"
+			]
+		},
+		"contracts/interfaces/IPool.sol": {
+			"keccak256": "0xc55318cdd28fcd5ea6dca9c93539394d404e2bb3e82f9371ea3c622d08894d7c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://460c6f48af45e80ba92168811b9bec79f12457b28e07e8beee314d98e023e9de",
+				"dweb:/ipfs/QmameDMANPRJt7jjKuYNsksuvxnbYYv8Q8DuMKbTkmgtXU"
 			]
 		},
 		"https://github.com/Vectorized/solady/blob/e4a14a5b365b353352f7c38e699a2bc9363d6576/src/tokens/ERC20.sol": {
