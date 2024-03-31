@@ -26,6 +26,31 @@
 				"type": "error"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "pool",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "token0",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "token1",
+						"type": "address"
+					}
+				],
+				"name": "PoolCreated",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -72,6 +97,19 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getProtocolBeneficiary",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -102,27 +140,27 @@
 	},
 	"sources": {
 		"contracts/Factory.sol": {
-			"keccak256": "0x8109d9a8827856a206be2537a36b528be5ac908de9a165aed387341bd565fdcb",
+			"keccak256": "0x88bfd864d6ef85af7053a5d25565fd564e1de247ba8fe5ea7bdbce6e8919ebcf",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fab29f90359b5c0ca2ab641672bf0409cf98b33f63f6949cce38e6d44bed55f7",
-				"dweb:/ipfs/QmVF2SNCeKENB5awTfK5N1hmo7qk4p5DFdnsX8MRy26sRh"
+				"bzz-raw://2f4f36702981292b053eef5b91b95b338a440f500cf0b63c074a067cdaf47ec9",
+				"dweb:/ipfs/QmZdSiosnUgmazq8iYjUz6mbxMxgoYZfyrfChQVv8twv1j"
 			]
 		},
 		"contracts/LP.sol": {
-			"keccak256": "0xe601925a38badfbfde4d9d5bbbffb47085be2669880a41c6f4d0fc2510962438",
+			"keccak256": "0xc8d7adf2dfa727059c2136cf002a44a515f62ce59fd26c1ccce2539be893cf09",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0073dabac2b6ea4c7eac509beddfa3673f515ccfeb3139133cceeb5aa540e589",
-				"dweb:/ipfs/QmPiJGkJvkMC4HhXbqgtL9cqX122pPSTE2t3R8m3vKb4xY"
+				"bzz-raw://80f6bbbd890b9faa6bb3a011b0cbe83f46e0e0af8cda401b8b5c1447f680c10b",
+				"dweb:/ipfs/QmSkeNeFGtjSoaHbEqkFAFQh38bxoKKvmdZN4xTNWCwZid"
 			]
 		},
 		"contracts/Pool.sol": {
-			"keccak256": "0x5a191fc8643819223fc43f5aba0313bbcade80b0c9ff3a69af4bd9f1a9c920d4",
+			"keccak256": "0x6ab18307e0138931dbcd7bd685b11bb299e649ed792836759c61a2a0b293c8a2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d2e4916ca292b5ab97b91076620ea0d3a5641b7eb34712d2693766504ccf6ce3",
-				"dweb:/ipfs/QmZ5mxjjvgfEGemxeW8E8dVpcAaUsEJoVqdKQtW8MbFjLR"
+				"bzz-raw://8f0a3f24c27e833546ae9bad52b031548023f63da90bf0a0053503deef55d670",
+				"dweb:/ipfs/QmfV5sHnaMTzbmVuD2vaYTcQYbdJMB2gq1WYL9cqXyE2cp"
 			]
 		},
 		"contracts/interfaces/IPool.sol": {

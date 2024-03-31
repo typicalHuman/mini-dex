@@ -4,13 +4,17 @@ import "./Pool.sol";
 
 contract Factory{
 
-    error TOKENS_NOT_SORTED();
-    error TOKENS_ARE_DUPLICATES();
-    error POOL_ALREADY_EXISTS();
+
 
     address s_owner;
     mapping(address => mapping(address => address)) s_pools;
     
+    error TOKENS_NOT_SORTED();
+    error TOKENS_ARE_DUPLICATES();
+    error POOL_ALREADY_EXISTS();
+
+    event PoolCreated(address pool, address token0, address token1);
+
     constructor(){
         s_owner = msg.sender;
     }
@@ -28,13 +32,15 @@ contract Factory{
 
         Pool _pool = new Pool(token0, token1);
         poolAddress = address(_pool);
-        s_pools[token0][token1] =poolAddress;
+        s_pools[token0][token1] = poolAddress;
+        emit PoolCreated(poolAddress, token0, token1);
     }
-
-
-
 
     function getPool(address token0, address token1) external view returns(address){
         return s_pools[token0][token1];
+    }
+
+    function getProtocolBeneficiary() external view returns (address){
+        return s_owner;
     }
 }

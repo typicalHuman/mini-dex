@@ -14,15 +14,18 @@ pragma solidity 0.8.20;
 // ability to create pool with native token
 // ability to withdraw/deposit 1 token
 
+// TODO: foundry tests
+// TODO: fee mechanism (2 types of fees: 1. LP fee 0.3%, 2. protocol fee (1/6 from 0.3% fee on every mint/burn?)
 
-// TODO: add modifiers & checks
-// TODO: add events
+
 
 import "./LP.sol";
 import "./interfaces/IPool.sol";
 
 contract Pool is IPool, LP {
 
+    uint constant public LP_FEE = 30; // 0.3%
+    uint constant public PROTOCOL_FEE  = 5; // protocol 0.05% from 0.3%
 
 
     address public factory;
@@ -39,9 +42,9 @@ contract Pool is IPool, LP {
     error TRANSFER_FAILED();
     error NOT_ENOUGH_BALANCE();
 
-    event Swap(address token0, address token1, uint amount);
-    event Deposit(address pool, uint lpAmount);
-    event Withdraw(address pool, uint lpAmount);
+    event Swap(address token0, address token1, uint amount0, uint amount1);
+    event Deposit(address pool, uint lpAmount, uint amount0, uint amount1);
+    event Withdraw(address pool, uint lpAmount, uint amount0, uint amount1);
 
     constructor(address token0, address token1) LP(string.concat(IERC20(token0).symbol(), IERC20(token1).symbol())){
         factory = msg.sender;
@@ -54,13 +57,11 @@ contract Pool is IPool, LP {
         _;
     }
 
-    function swap(address token, uint256 amount) external checkTokenInside(token) returns(uint256) {
+    function swap(address token, uint256 amount) external checkTokenInside(token) returns(uint256 amountOut) {
         address token0 = s_token0;
         address token1 = s_token1;
         if(amount == 0) revert AMOUNT_EQUALS_ZERO();
-    
-        
-        uint256 amountOut = _quote(token, amount);
+        amountOut = _quote(token, amount);
         address swap_token = token == token0 ? token1 : token0;
         if(IERC20(swap_token).balanceOf(address(this)) / 2 < amountOut) revert NOT_ENOUGH_BALANCE(); // / 2 so the user couldn't swap half of the pool reserve in 1 swap 
         _transfer(token, msg.sender, address(this), amount);
@@ -73,9 +74,9 @@ contract Pool is IPool, LP {
             s_reserve0 += amount;
             s_reserve1 -= amountOut;
         }
-        emit Swap(swap_token, token, amountOut);
-        return amountOut;
+        emit Swap(swap_token, token, amount, amountOut);
     }
+
     function deposit(uint256 amount0, uint256 amount1) external returns(uint256 liquidity){
 
         uint _totalSupply = totalSupply();
@@ -95,22 +96,23 @@ contract Pool is IPool, LP {
         _mint(msg.sender, liquidity);
         s_reserve0 += amount0;
         s_reserve1 += amount1;
-        emit Deposit(address(this), liquidity);
+        emit Deposit(address(this), liquidity, amount0, amount1);
     }
-    function withdraw(uint256 lpAmount) external returns (uint256, uint256){
+
+    function withdraw(uint256 lpAmount) external returns (uint256 amount0, uint256 amount1){
         if(balanceOf(msg.sender) < lpAmount) revert INSUFFICIENT_BALANCE();
         uint _totalSupply = totalSupply(); 
-        uint amount0 = lpAmount * s_reserve0 / _totalSupply;
-        uint amount1 = lpAmount * s_reserve0 / _totalSupply;
+        amount0 = lpAmount * s_reserve0 / _totalSupply;
+        amount1 = lpAmount * s_reserve0 / _totalSupply;
         if(amount0 == 0 || amount1 == 0) revert INSUFFICIENT_AMOUNT();
         _transfer(s_token0, address(this), msg.sender, amount0);
         _transfer(s_token1, address(this), msg.sender, amount1);
         _burn(address(this), lpAmount);
         s_reserve0 -= amount0;
         s_reserve1 -= amount1;
-        emit Withdraw(address(this), lpAmount);
-        return (amount0, amount1);
+        emit Withdraw(address(this), lpAmount, amount0, amount1);
     }
+
     function quote(address token, uint256 amount) public view checkTokenInside(token) returns(uint256){
         if(amount == 0) revert AMOUNT_EQUALS_ZERO();
         return _quote(token, amount);
@@ -195,4 +197,8 @@ interface IERC20 {
     function allowance(address owner, address spender) external view returns (uint256);
     function approve(address spender, uint256 value) external returns (bool);
     function transferFrom(address from, address to, uint256 value) external returns (bool);
+}
+
+interface IFactory{
+    function getProtocolBeneficiary() external view returns (address);
 }
