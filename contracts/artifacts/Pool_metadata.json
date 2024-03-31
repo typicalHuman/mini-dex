@@ -113,13 +113,45 @@
 			},
 			{
 				"anonymous": false,
-				"inputs": [],
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "pool",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "lpAmount",
+						"type": "uint256"
+					}
+				],
 				"name": "Deposit",
 				"type": "event"
 			},
 			{
 				"anonymous": false,
-				"inputs": [],
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "token0",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "token1",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
 				"name": "Swap",
 				"type": "event"
 			},
@@ -150,7 +182,20 @@
 			},
 			{
 				"anonymous": false,
-				"inputs": [],
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "pool",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "lpAmount",
+						"type": "uint256"
+					}
+				],
 				"name": "Withdraw",
 				"type": "event"
 			},
@@ -264,7 +309,7 @@
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "liquidity",
 						"type": "uint256"
 					}
 				],
@@ -629,11 +674,11 @@
 			]
 		},
 		"contracts/Pool.sol": {
-			"keccak256": "0x933f6a6102e05a2f5832c6d2d062b184412fb0bde50d984f35253cab86824d41",
+			"keccak256": "0x5a191fc8643819223fc43f5aba0313bbcade80b0c9ff3a69af4bd9f1a9c920d4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7c67809df1b5fd0680db5fb435d3b4fde7252b0914ebd6277883bef6fa3f64c8",
-				"dweb:/ipfs/QmXcEystjpcnJJozqVasxbb6jantdj3JDqg11GVEGrHVad"
+				"bzz-raw://d2e4916ca292b5ab97b91076620ea0d3a5641b7eb34712d2693766504ccf6ce3",
+				"dweb:/ipfs/QmZ5mxjjvgfEGemxeW8E8dVpcAaUsEJoVqdKQtW8MbFjLR"
 			]
 		},
 		"contracts/interfaces/IPool.sol": {

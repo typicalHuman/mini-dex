@@ -459,11 +459,11 @@
 	},
 	"sources": {
 		"contracts/LP.sol": {
-			"keccak256": "0xe601925a38badfbfde4d9d5bbbffb47085be2669880a41c6f4d0fc2510962438",
+			"keccak256": "0xc8d7adf2dfa727059c2136cf002a44a515f62ce59fd26c1ccce2539be893cf09",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0073dabac2b6ea4c7eac509beddfa3673f515ccfeb3139133cceeb5aa540e589",
-				"dweb:/ipfs/QmPiJGkJvkMC4HhXbqgtL9cqX122pPSTE2t3R8m3vKb4xY"
+				"bzz-raw://80f6bbbd890b9faa6bb3a011b0cbe83f46e0e0af8cda401b8b5c1447f680c10b",
+				"dweb:/ipfs/QmSkeNeFGtjSoaHbEqkFAFQh38bxoKKvmdZN4xTNWCwZid"
 			]
 		},
 		"https://github.com/Vectorized/solady/blob/e4a14a5b365b353352f7c38e699a2bc9363d6576/src/tokens/ERC20.sol": {

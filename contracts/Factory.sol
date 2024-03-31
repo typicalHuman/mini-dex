@@ -15,7 +15,7 @@ contract Factory{
         s_owner = msg.sender;
     }
 
-    function createPool(address token0, address token1) external{
+    function createPool(address token0, address token1) external returns (address poolAddress){
         if(token0 > token1){
             revert TOKENS_NOT_SORTED();
         }
@@ -27,7 +27,8 @@ contract Factory{
         }
 
         Pool _pool = new Pool(token0, token1);
-        s_pools[token0][token1] = address(_pool);
+        poolAddress = address(_pool);
+        s_pools[token0][token1] =poolAddress;
     }
 
 

@@ -21,18 +21,6 @@ pragma solidity 0.8.20;
 import "./LP.sol";
 import "./interfaces/IPool.sol";
 
-interface IERC20 {
-    event Transfer(address indexed from, address indexed to, uint256 value);
-    event Approval(address indexed owner, address indexed spender, uint256 value);
-    function totalSupply() external view returns (uint256);
-    function symbol() external view returns(string memory);
-    function balanceOf(address account) external view returns (uint256);
-    function transfer(address to, uint256 value) external returns (bool);
-    function allowance(address owner, address spender) external view returns (uint256);
-    function approve(address spender, uint256 value) external returns (bool);
-    function transferFrom(address from, address to, uint256 value) external returns (bool);
-}
-
 contract Pool is IPool, LP {
 
 
@@ -51,9 +39,9 @@ contract Pool is IPool, LP {
     error TRANSFER_FAILED();
     error NOT_ENOUGH_BALANCE();
 
-    event Swap();
-    event Deposit();
-    event Withdraw();
+    event Swap(address token0, address token1, uint amount);
+    event Deposit(address pool, uint lpAmount);
+    event Withdraw(address pool, uint lpAmount);
 
     constructor(address token0, address token1) LP(string.concat(IERC20(token0).symbol(), IERC20(token1).symbol())){
         factory = msg.sender;
@@ -85,17 +73,29 @@ contract Pool is IPool, LP {
             s_reserve0 += amount;
             s_reserve1 -= amountOut;
         }
+        emit Swap(swap_token, token, amountOut);
         return amountOut;
     }
-    function deposit(uint256 amount0, uint256 amount1) external returns(uint256){
-        uint256 quotedAmount1 = _quote(s_token0, amount0);
-        if(quotedAmount1 < amount1) revert INSUFFICIENT_AMOUNT();
+    function deposit(uint256 amount0, uint256 amount1) external returns(uint256 liquidity){
+
         uint _totalSupply = totalSupply();
-        uint256 liquidity = min(amount0 * s_reserve0 / _totalSupply, amount1 * s_reserve1 / _totalSupply);
+        _transfer(s_token0,  msg.sender,address(this), amount0);
+        _transfer(s_token1, msg.sender, address(this),  amount1);
+        
+        if(_totalSupply == 0){
+            liquidity = sqrt(amount0 * amount1) - MINIMUM_LIQUIDITY;
+            // to prevent over-inflation vulnerability
+            _mint(address(0), MINIMUM_LIQUIDITY);
+        }else{
+            uint256 quotedAmount1 = _quote(s_token0, amount0);
+            if(quotedAmount1 < amount1) revert INSUFFICIENT_AMOUNT();
+            liquidity = min(amount0 * s_reserve0 / _totalSupply, amount1 * s_reserve1 / _totalSupply);
+        }
+     
         _mint(msg.sender, liquidity);
         s_reserve0 += amount0;
         s_reserve1 += amount1;
-        return liquidity; 
+        emit Deposit(address(this), liquidity);
     }
     function withdraw(uint256 lpAmount) external returns (uint256, uint256){
         if(balanceOf(msg.sender) < lpAmount) revert INSUFFICIENT_BALANCE();
@@ -108,6 +108,7 @@ contract Pool is IPool, LP {
         _burn(address(this), lpAmount);
         s_reserve0 -= amount0;
         s_reserve1 -= amount1;
+        emit Withdraw(address(this), lpAmount);
         return (amount0, amount1);
     }
     function quote(address token, uint256 amount) public view checkTokenInside(token) returns(uint256){
@@ -130,4 +131,68 @@ contract Pool is IPool, LP {
     function min(uint256 a, uint256 b) internal pure returns (uint256) {
         return a < b ? a : b;
     }
+    function sqrt(uint256 a) public pure returns (uint256) {
+        unchecked {
+            if (a <= 1) {
+                return a;
+            }
+            uint256 aa = a;
+            uint256 xn = 1;
+
+            if (aa >= (1 << 128)) {
+                aa >>= 128;
+                xn <<= 64;
+            }
+            if (aa >= (1 << 64)) {
+                aa >>= 64;
+                xn <<= 32;
+            }
+            if (aa >= (1 << 32)) {
+                aa >>= 32;
+                xn <<= 16;
+            }
+            if (aa >= (1 << 16)) {
+                aa >>= 16;
+                xn <<= 8;
+            }
+            if (aa >= (1 << 8)) {
+                aa >>= 8;
+                xn <<= 4;
+            }
+            if (aa >= (1 << 4)) {
+                aa >>= 4;
+                xn <<= 2;
+            }
+            if (aa >= (1 << 2)) {
+                xn <<= 1;
+            }
+            xn = (3 * xn) >> 1; // ε_0 := | x_0 - sqrt(a) | ≤ 2**(e-2)
+            xn = (xn + a / xn) >> 1; // ε_1 := | x_1 - sqrt(a) | ≤ 2**(e-4.5)  -- special case, see above
+            xn = (xn + a / xn) >> 1; // ε_2 := | x_2 - sqrt(a) | ≤ 2**(e-9)    -- general case with k = 4.5
+            xn = (xn + a / xn) >> 1; // ε_3 := | x_3 - sqrt(a) | ≤ 2**(e-18)   -- general case with k = 9
+            xn = (xn + a / xn) >> 1; // ε_4 := | x_4 - sqrt(a) | ≤ 2**(e-36)   -- general case with k = 18
+            xn = (xn + a / xn) >> 1; // ε_5 := | x_5 - sqrt(a) | ≤ 2**(e-72)   -- general case with k = 36
+            xn = (xn + a / xn) >> 1; // ε_6 := | x_6 - sqrt(a) | ≤ 2**(e-144)  -- general case with k = 72
+            return xn - toUint(xn > a / xn);
+        }
+    }
+    function toUint(bool b) internal pure returns (uint256 u) {
+            /// @solidity memory-safe-assembly
+        assembly {
+            u := iszero(iszero(b))
+        }
+    }
+
+}
+
+interface IERC20 {
+    event Transfer(address indexed from, address indexed to, uint256 value);
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+    function totalSupply() external view returns (uint256);
+    function symbol() external view returns(string memory);
+    function balanceOf(address account) external view returns (uint256);
+    function transfer(address to, uint256 value) external returns (bool);
+    function allowance(address owner, address spender) external view returns (uint256);
+    function approve(address spender, uint256 value) external returns (bool);
+    function transferFrom(address from, address to, uint256 value) external returns (bool);
 }

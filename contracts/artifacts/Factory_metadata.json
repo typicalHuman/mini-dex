@@ -39,7 +39,13 @@
 					}
 				],
 				"name": "createPool",
-				"outputs": [],
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "poolAddress",
+						"type": "address"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -96,11 +102,11 @@
 	},
 	"sources": {
 		"contracts/Factory.sol": {
-			"keccak256": "0x137d632cc98047e7f54ee68c6bd18a86b40e2d52ec0354df973e02c29afdab5d",
+			"keccak256": "0x8109d9a8827856a206be2537a36b528be5ac908de9a165aed387341bd565fdcb",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a520c87f9ecd45fee1aa2d183a846a8ab0a6034273f59ff41580a485378254c0",
-				"dweb:/ipfs/QmchMCoYGr1soiX1bziVBvb2USPcpYohaY3qUehpSvsSXD"
+				"bzz-raw://fab29f90359b5c0ca2ab641672bf0409cf98b33f63f6949cce38e6d44bed55f7",
+				"dweb:/ipfs/QmVF2SNCeKENB5awTfK5N1hmo7qk4p5DFdnsX8MRy26sRh"
 			]
 		},
 		"contracts/LP.sol": {
@@ -112,11 +118,11 @@
 			]
 		},
 		"contracts/Pool.sol": {
-			"keccak256": "0x071e4d6cbf87bcd3aba8a0a57efae1521e02d95b8d751a3d2662265e656f7c92",
+			"keccak256": "0x5a191fc8643819223fc43f5aba0313bbcade80b0c9ff3a69af4bd9f1a9c920d4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e592d121d3118ff3229130ec6a8f813693aebb64c49015689980885f3787b29c",
-				"dweb:/ipfs/QmS57zETY5RHaKQ3iJohoRYuHoFHsXQQ2FxK85NHxHD8Vd"
+				"bzz-raw://d2e4916ca292b5ab97b91076620ea0d3a5641b7eb34712d2693766504ccf6ce3",
+				"dweb:/ipfs/QmZ5mxjjvgfEGemxeW8E8dVpcAaUsEJoVqdKQtW8MbFjLR"
 			]
 		},
 		"contracts/interfaces/IPool.sol": {

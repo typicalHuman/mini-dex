@@ -13,8 +13,6 @@ contract LP is ERC20 {
 
     constructor(string memory _name){
         s_name = _name;
-        // to prevent over-inflation vulnerability
-        _mint(address(0), MINIMUM_LIQUIDITY);
     }
 
     function name() public view override returns(string memory) {
