@@ -29,6 +29,7 @@ contract Pool is IPool, LP {
 
 
     address public factory;
+    uint public kLast;
 
     address s_token0;
     address s_token1;
@@ -65,7 +66,8 @@ contract Pool is IPool, LP {
         address swap_token = token == token0 ? token1 : token0;
         if(IERC20(swap_token).balanceOf(address(this)) / 2 < amountOut) revert NOT_ENOUGH_BALANCE(); // / 2 so the user couldn't swap half of the pool reserve in 1 swap 
         _transfer(token, msg.sender, address(this), amount);
-        _transfer(swap_token, address(this), msg.sender, amountOut);
+        uint256 amountWithFees = amountOut * LP_FEE / 10000;
+        _transfer(swap_token, address(this), msg.sender, amountWithFees);
         if(swap_token == token0){
             s_reserve0 -= amountOut;
             s_reserve1 += amount;
@@ -74,15 +76,15 @@ contract Pool is IPool, LP {
             s_reserve0 += amount;
             s_reserve1 -= amountOut;
         }
-        emit Swap(swap_token, token, amount, amountOut);
+        emit Swap(swap_token, token, amountWithFees, amountOut);
     }
 
     function deposit(uint256 amount0, uint256 amount1) external returns(uint256 liquidity){
-
         uint _totalSupply = totalSupply();
+        (uint _reserve0, uint _reserve1) = (s_reserve0, s_reserve1);
         _transfer(s_token0,  msg.sender,address(this), amount0);
         _transfer(s_token1, msg.sender, address(this),  amount1);
-        
+        mintFee(_reserve0, _reserve1);
         if(_totalSupply == 0){
             liquidity = sqrt(amount0 * amount1) - MINIMUM_LIQUIDITY;
             // to prevent over-inflation vulnerability
@@ -90,32 +92,51 @@ contract Pool is IPool, LP {
         }else{
             uint256 quotedAmount1 = _quote(s_token0, amount0);
             if(quotedAmount1 < amount1) revert INSUFFICIENT_AMOUNT();
-            liquidity = min(amount0 * s_reserve0 / _totalSupply, amount1 * s_reserve1 / _totalSupply);
+            liquidity = min(amount0 * _totalSupply / _reserve0, amount1 *  _totalSupply / _reserve1);
         }
      
         _mint(msg.sender, liquidity);
         s_reserve0 += amount0;
         s_reserve1 += amount1;
+        kLast = s_reserve0 * s_reserve1; // maybe check if updating _reserve0 would be cheaper
         emit Deposit(address(this), liquidity, amount0, amount1);
     }
 
     function withdraw(uint256 lpAmount) external returns (uint256 amount0, uint256 amount1){
         if(balanceOf(msg.sender) < lpAmount) revert INSUFFICIENT_BALANCE();
+        (uint _reserve0, uint _reserve1) = (s_reserve0, s_reserve1);
         uint _totalSupply = totalSupply(); 
-        amount0 = lpAmount * s_reserve0 / _totalSupply;
-        amount1 = lpAmount * s_reserve0 / _totalSupply;
+        amount0 = lpAmount * _reserve0 / _totalSupply;
+        amount1 = lpAmount * _reserve1 / _totalSupply;
         if(amount0 == 0 || amount1 == 0) revert INSUFFICIENT_AMOUNT();
+        mintFee(_reserve0, _reserve1);
         _transfer(s_token0, address(this), msg.sender, amount0);
         _transfer(s_token1, address(this), msg.sender, amount1);
         _burn(address(this), lpAmount);
         s_reserve0 -= amount0;
         s_reserve1 -= amount1;
+        kLast = s_reserve0 * s_reserve1; // maybe check if updating _reserve0 would be cheaper
         emit Withdraw(address(this), lpAmount, amount0, amount1);
     }
 
     function quote(address token, uint256 amount) public view checkTokenInside(token) returns(uint256){
         if(amount == 0) revert AMOUNT_EQUALS_ZERO();
         return _quote(token, amount);
+    }
+
+    function mintFee(uint _reserve0, uint _reserve1) private{
+        address feeTo = IFactory(factory).getProtocolBeneficiary();
+        uint _kLast = kLast;
+        if(_kLast != 0){
+            uint rootK = sqrt(_reserve0 * _reserve1);
+            uint rootKLast = sqrt(_kLast);
+            if(rootK > rootKLast){
+                uint numerator = totalSupply() * (rootK - rootKLast);
+                uint denominator = rootK * PROTOCOL_FEE + rootKLast; // q what math behind that?
+                uint liquidity = numerator / denominator;
+                if(liquidity > 0) _mint(feeTo,liquidity);
+            }
+        }
     }
 
     function _quote(address token, uint256 amount) private view returns(uint256){

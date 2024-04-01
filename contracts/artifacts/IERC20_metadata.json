@@ -238,11 +238,11 @@
 			]
 		},
 		"contracts/Pool.sol": {
-			"keccak256": "0x97c7320d2a86f3f8bbd6b0ac6bf98ba93991295b029b9f0aa2c9e24f76356c5d",
+			"keccak256": "0x66088ba8f5f8552dd3d45cd9e62512885c80c6f82e3cf8ba84728641b7038b4a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://655b95bd5f5ffcae90295b773d7b4fe0bf3df74c41b4e1515e6f653dea139e3e",
-				"dweb:/ipfs/QmUHNb2A8RZcUqFRREf8gjNsADHYNfTXGgDyVAygDcENJP"
+				"bzz-raw://958cb986ca7dcc8ada8c45b536a18c129d616d49d579909d4448fa1c90dcfb11",
+				"dweb:/ipfs/QmenecuqqvoD7oaKj1Z3NaSDYhvV7CyP4yN2gT1yQUTVRt"
 			]
 		},
 		"contracts/interfaces/IPool.sol": {
