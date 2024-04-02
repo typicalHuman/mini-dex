@@ -22,6 +22,8 @@ pragma solidity 0.8.20;
 import "./LP.sol";
 import "./interfaces/IPool.sol";
 
+// @title Base pool contract 
+// @author typicalHuman
 contract Pool is IPool, LP {
 
     uint constant public LP_FEE = 30; // 0.3%

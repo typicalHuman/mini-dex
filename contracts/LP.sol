@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: MIT
 pragma solidity 0.8.20;
 
-import "https://github.com/Vectorized/solady/blob/e4a14a5b365b353352f7c38e699a2bc9363d6576/src/tokens/ERC20.sol" ;
+import "solady/tokens/ERC20.sol" ;
 
 contract LP is ERC20 {
 
