@@ -12,12 +12,12 @@ pragma solidity 0.8.20;
 
 // possible features:
 // ability to create pool with native token
-// ability to withdraw/deposit 1 token
+// factory check that pool is created by factory
 
 // TODO: foundry tests
 // TODO: fee mechanism (2 types of fees: 1. LP fee 0.3%, 2. protocol fee (1/6 from 0.3% fee on every mint/burn?)
-
-
+// TODO: write fuzz test 
+// TODO: write invariat test
 
 import "./LP.sol";
 import "./interfaces/IPool.sol";
