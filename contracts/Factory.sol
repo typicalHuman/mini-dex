@@ -1,12 +1,13 @@
 //SPDX-License-Identifier: MIT
 pragma solidity 0.8.20;
 import "./Pool.sol";
+import "./interfaces/IFactory.sol";
 
-contract Factory{
+contract Factory is IFactory{
 
 
 
-    address s_owner;
+    address immutable s_owner;
     mapping(address => mapping(address => address)) s_pools;
     
     error TOKENS_NOT_SORTED();

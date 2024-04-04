@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: MIT
 pragma solidity 0.8.20;
 
-import "solady/tokens/ERC20.sol" ;
+import "solady/tokens/ERC20.sol";
 
 contract LP is ERC20 {
 

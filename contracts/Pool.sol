@@ -21,6 +21,7 @@ pragma solidity 0.8.20;
 
 import "./LP.sol";
 import "./interfaces/IPool.sol";
+import "./interfaces/IFactory.sol";
 
 // @title Base pool contract 
 // @author typicalHuman
@@ -30,14 +31,15 @@ contract Pool is IPool, LP {
     uint constant public PROTOCOL_FEE  = 5; // protocol 0.05% from 0.3%
 
 
-    address public factory;
+    address immutable public factory;
     uint public kLast;
 
-    address s_token0;
-    address s_token1;
+    address immutable s_token0;
+    address immutable s_token1;
     uint256 s_reserve0;
     uint256 s_reserve1;
 
+    error ZERO_ADDRESS();
     error TOKEN_NOT_INSIDE_POOL();
     error AMOUNT_EQUALS_ZERO();
     error INSUFFICIENT_AMOUNT();
@@ -50,6 +52,8 @@ contract Pool is IPool, LP {
     event Withdraw(address pool, uint lpAmount, uint amount0, uint amount1);
 
     constructor(address token0, address token1) LP(string.concat(IERC20(token0).symbol(), IERC20(token1).symbol())){
+        if(token0 == address(0) || token1 == address(0))
+            revert ZERO_ADDRESS();
         factory = msg.sender;
         s_token0 = token0;
         s_token1 = token1;
@@ -67,9 +71,7 @@ contract Pool is IPool, LP {
         amountOut = _quote(token, amount);
         address swap_token = token == token0 ? token1 : token0;
         if(IERC20(swap_token).balanceOf(address(this)) / 2 < amountOut) revert NOT_ENOUGH_BALANCE(); // / 2 so the user couldn't swap half of the pool reserve in 1 swap 
-        _transfer(token, msg.sender, address(this), amount);
         uint256 amountWithFees = amountOut * LP_FEE / 10000;
-        _transfer(swap_token, address(this), msg.sender, amountWithFees);
         if(swap_token == token0){
             s_reserve0 -= amountOut;
             s_reserve1 += amount;
@@ -79,13 +81,14 @@ contract Pool is IPool, LP {
             s_reserve1 -= amountOut;
         }
         emit Swap(swap_token, token, amountWithFees, amountOut);
+        _transfer(token, msg.sender, address(this), amount);
+        _transfer(swap_token, address(this), msg.sender, amountWithFees);
     }
 
     function deposit(uint256 amount0, uint256 amount1) external returns(uint256 liquidity){
         uint _totalSupply = totalSupply();
         (uint _reserve0, uint _reserve1) = (s_reserve0, s_reserve1);
-        _transfer(s_token0,  msg.sender,address(this), amount0);
-        _transfer(s_token1, msg.sender, address(this),  amount1);
+      
         mintFee(_reserve0, _reserve1);
         if(_totalSupply == 0){
             liquidity = sqrt(amount0 * amount1) - MINIMUM_LIQUIDITY;
@@ -102,6 +105,8 @@ contract Pool is IPool, LP {
         s_reserve1 += amount1;
         kLast = s_reserve0 * s_reserve1; // maybe check if updating _reserve0 would be cheaper
         emit Deposit(address(this), liquidity, amount0, amount1);
+        _transfer(s_token0,  msg.sender,address(this), amount0);
+        _transfer(s_token1, msg.sender, address(this),  amount1);
     }
 
     function withdraw(uint256 lpAmount) external returns (uint256 amount0, uint256 amount1){
@@ -112,13 +117,13 @@ contract Pool is IPool, LP {
         amount1 = lpAmount * _reserve1 / _totalSupply;
         if(amount0 == 0 || amount1 == 0) revert INSUFFICIENT_AMOUNT();
         mintFee(_reserve0, _reserve1);
-        _transfer(s_token0, address(this), msg.sender, amount0);
-        _transfer(s_token1, address(this), msg.sender, amount1);
         _burn(address(this), lpAmount);
         s_reserve0 -= amount0;
         s_reserve1 -= amount1;
         kLast = s_reserve0 * s_reserve1; // maybe check if updating _reserve0 would be cheaper
         emit Withdraw(address(this), lpAmount, amount0, amount1);
+        _transfer(s_token0, address(this), msg.sender, amount0);
+        _transfer(s_token1, address(this), msg.sender, amount1);
     }
 
     function quote(address token, uint256 amount) public view checkTokenInside(token) returns(uint256){
@@ -156,6 +161,7 @@ contract Pool is IPool, LP {
     function min(uint256 a, uint256 b) internal pure returns (uint256) {
         return a < b ? a : b;
     }
+    // slither-disable-start INLINE ASM
     function sqrt(uint256 a) public pure returns (uint256) {
         unchecked {
             if (a <= 1) {
@@ -201,12 +207,16 @@ contract Pool is IPool, LP {
             return xn - toUint(xn > a / xn);
         }
     }
+ 
+
+
     function toUint(bool b) internal pure returns (uint256 u) {
-            /// @solidity memory-safe-assembly
+        // @solidity memory-safe-assembly
         assembly {
             u := iszero(iszero(b))
         }
     }
+    // slither-disable-end INLINE ASM
 
 }
 
@@ -222,6 +232,3 @@ interface IERC20 {
     function transferFrom(address from, address to, uint256 value) external returns (bool);
 }
 
-interface IFactory{
-    function getProtocolBeneficiary() external view returns (address);
-}

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.20;
 
 import {Test, console} from "forge-std/Test.sol";
 import {ERC20Mock} from "./mocks/ERC20Mock.sol";
@@ -7,9 +7,9 @@ import {Factory} from "../contracts/Factory.sol";
 import {Pool} from "../contracts/Pool.sol";
 contract BaseTest is Test {
 
-
-    uint constant INITIAL_USDT_BALANCE = 10000;
-    uint constant INITIAL_WETH_BALANCE = 100;
+    uint constant MINIMUM_LIQUIDITY = 10**3;
+    uint constant INITIAL_USDT_BALANCE = 10000e6;
+    uint constant INITIAL_WETH_BALANCE = 100e18;
 
     ERC20Mock public usdt;
     address public usdtAddress;
@@ -22,6 +22,7 @@ contract BaseTest is Test {
     
     address public owner = vm.addr(1);
     address public lp = vm.addr(2);
+    address public randUser = vm.addr(50);
 
     function setUp() public virtual{
         _setUpMocks();
