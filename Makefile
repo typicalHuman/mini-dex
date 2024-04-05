@@ -28,5 +28,5 @@ scopefile :; @tree ./src/ | sed 's/└/#/g' | awk -F '── ' '!/\.sol$$/ { pat
 slither :; slither . --config-file slither.config.json 
 
 aderyn :; aderyn .
-
-testPoolDeposits:; forge test --mc PoolDepositsTest -vvv
+ 
+testPoolDeposits:; forge test --mt test_SecondDeposit -vv

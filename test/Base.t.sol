@@ -3,8 +3,8 @@ pragma solidity ^0.8.20;
 
 import {Test, console} from "forge-std/Test.sol";
 import {ERC20Mock} from "./mocks/ERC20Mock.sol";
-import {Factory} from "../contracts/Factory.sol";
-import {Pool} from "../contracts/Pool.sol";
+import {Factory} from "../src/Factory.sol";
+import {Pool} from "../src/Pool.sol";
 contract BaseTest is Test {
 
     uint constant MINIMUM_LIQUIDITY = 10**3;
@@ -53,6 +53,9 @@ contract BaseTest is Test {
         vm.label(address(weth), "WETH");
         vm.label(address(usdt), "USDT");
         vm.label(address(pool), "[WETH/USDT]");
+        vm.label(lp, "LP");
+        vm.label(owner, "OWNER");
+        vm.label(address(factory), "FACTORY");
     }
 
     // add this to be excluded from coverage report
