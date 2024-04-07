@@ -29,4 +29,4 @@ slither :; slither . --config-file slither.config.json
 
 aderyn :; aderyn .
  
-testPoolDeposits:; forge test --mt test_SecondDeposit -vv
+testPoolDeposits:; forge test --mc PoolDepositsTest -vvv

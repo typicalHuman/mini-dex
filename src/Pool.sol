@@ -15,21 +15,20 @@ pragma solidity 0.8.20;
 // factory check that pool is created by factory
 
 // TODO: foundry tests
-// TODO: fee mechanism (2 types of fees: 1. LP fee 0.3%, 2. protocol fee (1/6 from 0.3% fee on every mint/burn?)
 // TODO: write fuzz test 
 // TODO: write invariat test
 
 import "./LP.sol";
 import "./interfaces/IPool.sol";
 import "./interfaces/IFactory.sol";
+import "./interfaces/IERC20.sol";
 
 // @title Base pool contract 
 // @author typicalHuman
 contract Pool is IPool, LP {
 
     uint constant public LP_FEE = 30; // 0.3%
-    uint constant public PROTOCOL_FEE  = 5; // protocol 0.05% from 0.3%
-
+    uint constant public PROTOCOL_FEE = 9; // 1/10 of 0.3%
 
     address immutable public factory;
     uint public kLast;
@@ -132,7 +131,13 @@ contract Pool is IPool, LP {
         if(amount == 0) revert AMOUNT_EQUALS_ZERO();
         return _quote(token, amount);
     }
+
+    function getTokens() public view returns(address, address){
+        return (s_token0, s_token1);
+    }
+
     // fee comes from swaps and not deposits
+    // takes 1/10 of swaps fee
     function mintFee(uint _reserve0, uint _reserve1) private{
         address feeTo = IFactory(factory).getProtocolBeneficiary();
         uint _kLast = kLast;
@@ -141,30 +146,19 @@ contract Pool is IPool, LP {
             uint rootKLast = sqrt(_kLast);
             if(rootK > rootKLast){
                 uint numerator = totalSupply() * (rootK - rootKLast);
-                uint denominator = rootK * PROTOCOL_FEE + rootKLast; // q what math behind that?
+                uint denominator = rootK * PROTOCOL_FEE + rootKLast; // check README for math behind that
                 uint liquidity = numerator / denominator;
                 if(liquidity > 0) _mint(feeTo,liquidity);
-                // 65,076,877,614,095
-                // 59,160,797,830,996
-                // 5,916,079,783,098
-                //384,999,999,999,890,239,347,566,310
-                //384,545,185,901,471
-
-                // current result
-                //1,001,182,732,524
-
-
-                // my calc:
-                // 349,999,999,999,903,444,541,305,608
             }
         }
     }
 
+
     function _quote(address token, uint256 amount) private view returns(uint256){
         address token0 = s_token0;
-        uint256 baseReserve = token == token0 ? s_reserve0 : s_reserve1;
-        uint256 quoteReserve = token == token0 ? s_reserve1 : s_reserve0;
-        return (baseReserve * amount) / quoteReserve ;
+        uint256 baseReserve = token == token0 ? s_reserve1 : s_reserve0;
+        uint256 quoteReserve = token == token0 ? s_reserve0 : s_reserve1;
+        return (baseReserve * amount) / quoteReserve;
     }
 
     function _transfer(address token, address from, address to, uint256 amount) private{
@@ -232,17 +226,5 @@ contract Pool is IPool, LP {
     }
     // slither-disable-end INLINE ASM
 
-}
-
-interface IERC20 {
-    event Transfer(address indexed from, address indexed to, uint256 value);
-    event Approval(address indexed owner, address indexed spender, uint256 value);
-    function totalSupply() external view returns (uint256);
-    function symbol() external view returns(string memory);
-    function balanceOf(address account) external view returns (uint256);
-    function transfer(address to, uint256 value) external returns (bool);
-    function allowance(address owner, address spender) external view returns (uint256);
-    function approve(address spender, uint256 value) external returns (bool);
-    function transferFrom(address from, address to, uint256 value) external returns (bool);
 }
 
