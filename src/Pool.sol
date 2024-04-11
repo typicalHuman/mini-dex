@@ -17,6 +17,7 @@ pragma solidity 0.8.20;
 // TODO: foundry tests
 // TODO: write fuzz test 
 // TODO: write invariat test
+// TODO: add lock support for reentrancy attack protection against with ERC777 tokens
 
 import "./LP.sol";
 import "./interfaces/IPool.sol";
@@ -80,8 +81,8 @@ contract Pool is IPool, LP {
             s_reserve1 -= amountOut;
         }
         emit Swap(swap_token, token, amountWithFees, amountOut);
-        _transfer(token, msg.sender, address(this), amount);
-        _transfer(swap_token, address(this), msg.sender, amountWithFees);
+        p_transferFrom(token, msg.sender, address(this), amount);
+        p_transfer(swap_token, msg.sender, amountWithFees);
     }
 
     function deposit(uint256 amount0, uint256 amount1) external returns(uint256 liquidity){
@@ -104,16 +105,17 @@ contract Pool is IPool, LP {
   
         kLast = s_reserve0 * s_reserve1; // maybe check if updating _reserve0 would be cheaper
         emit Deposit(address(this), liquidity, amount0, amount1);
-        _transfer(s_token0,  msg.sender,address(this), amount0);
-        _transfer(s_token1, msg.sender, address(this),  amount1);
+        p_transferFrom(s_token0,  msg.sender,address(this), amount0);
+        p_transferFrom(s_token1, msg.sender, address(this),  amount1);
     }
 
     function withdraw(uint256 lpAmount) external returns (uint256 amount0, uint256 amount1){
         if(balanceOf(msg.sender) < lpAmount) revert INSUFFICIENT_BALANCE();
+        p_transferFrom(address(this), msg.sender, address(this), lpAmount);
         (uint _reserve0, uint _reserve1) = (s_reserve0, s_reserve1);
         uint _totalSupply = totalSupply(); 
-        amount0 = lpAmount * _reserve0 / _totalSupply;
-        amount1 = lpAmount * _reserve1 / _totalSupply;
+        amount0 = (lpAmount * _reserve0) / _totalSupply;
+        amount1 = (lpAmount * _reserve1) / _totalSupply;
         if(amount0 == 0 || amount1 == 0) revert INSUFFICIENT_AMOUNT();
         mintFee(_reserve0, _reserve1);
         _burn(address(this), lpAmount);
@@ -123,8 +125,8 @@ contract Pool is IPool, LP {
       
         kLast = s_reserve0 * s_reserve1; // maybe check if updating _reserve0 would be cheaper
         emit Withdraw(address(this), lpAmount, amount0, amount1);
-        _transfer(s_token0, address(this), msg.sender, amount0);
-        _transfer(s_token1, address(this), msg.sender, amount1);
+        p_transfer(s_token0, msg.sender, amount0);
+        p_transfer(s_token1, msg.sender, amount1);
     }
 
     function quote(address token, uint256 amount) public view checkTokenInside(token) returns(uint256){
@@ -161,8 +163,12 @@ contract Pool is IPool, LP {
         return (baseReserve * amount) / quoteReserve;
     }
 
-    function _transfer(address token, address from, address to, uint256 amount) private{
+    function p_transferFrom(address token, address from, address to, uint256 amount) private{
         bool success = IERC20(token).transferFrom(from, to, amount);
+        if(!success) revert TRANSFER_FAILED();
+    }
+    function p_transfer(address token, address to, uint256 amount) private{
+        bool success = IERC20(token).transfer(to, amount);
         if(!success) revert TRANSFER_FAILED();
     }
 

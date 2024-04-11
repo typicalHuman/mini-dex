@@ -49,8 +49,7 @@ contract BaseTest is Test {
 
 
         vm.startPrank(lp);
-        address token0 = usdtAddress > wethAddress ? wethAddress : usdtAddress;
-        address token1 = usdtAddress > wethAddress ? usdtAddress : wethAddress;
+        (address token0, address token1) = utils.sortTokens(usdtAddress, wethAddress);
         pool = Pool(factory.createPool(token0, token1));
     }
     

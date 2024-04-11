@@ -29,4 +29,6 @@ slither :; slither . --config-file slither.config.json
 
 aderyn :; aderyn .
  
+testFactory:; forge test --mc FactoryTest -vvv
 testPoolDeposits:; forge test --mc PoolDepositsTest -vvv
+testPoolWithdraws:; forge test --mc PoolWithdrawsTest -vv

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.20;
 
 import {BaseTest} from "../Base.t.sol";
 import {console} from "forge-std/Test.sol";
@@ -11,9 +13,10 @@ contract PoolDepositsTest is BaseTest{
     function test_basicDeposit() public{
         uint token0Amount = 3500e6;
         uint token1Amount = 1e18;
-        depositAmounts(token0Amount, token1Amount, lp);
+        uint liquidity = depositAmounts(token0Amount, token1Amount, lp);
         uint expectedLiquidity = 59_160_797_830_996 - MINIMUM_LIQUIDITY;
         assertEq(pool.balanceOf(lp), expectedLiquidity);
+        assertEq(liquidity, expectedLiquidity);
         assertEq(pool.balanceOf(address(0)), MINIMUM_LIQUIDITY);
         assertEq(pool.balanceOf(factory.getProtocolBeneficiary()), 0);
     }
@@ -30,6 +33,6 @@ contract PoolDepositsTest is BaseTest{
 
 
     function depositAmounts(uint token0Amount, uint token1Amount, address from) internal returns (uint liquidity){
-       utils.depositAmounts(pool, token0Amount, token1Amount, from);
+       liquidity = utils.depositAmounts(pool, token0Amount, token1Amount, from);
     }
 }

@@ -1,0 +1,859 @@
+Compiling 57 files with 0.8.20
+Solc 0.8.20 finished in 12.87s
+Compiler run successful!
+Analysing contracts...
+Running tests...
+Uncovered for src/Factory.sol:
+- Branch (branch: 0, path: 0) (location: source ID 44, line 21, chars 590-662, hits: 0)
+- Line (location: source ID 44, line 22, chars 624-650, hits: 0)
+- Statement (location: source ID 44, line 22, chars 624-650, hits: 0)
+- Branch (branch: 1, path: 0) (location: source ID 44, line 24, chars 672-749, hits: 0)
+- Line (location: source ID 44, line 25, chars 707-737, hits: 0)
+- Statement (location: source ID 44, line 25, chars 707-737, hits: 0)
+- Branch (branch: 2, path: 0) (location: source ID 44, line 27, chars 759-855, hits: 0)
+- Line (location: source ID 44, line 28, chars 815-843, hits: 0)
+- Statement (location: source ID 44, line 28, chars 815-843, hits: 0)
+
+Uncovered for src/LP.sol:
+- Function "name" (location: source ID 45, line 18, chars 310-425, hits: 0)
+- Line (location: source ID 45, line 19, chars 381-417, hits: 0)
+- Statement (location: source ID 45, line 19, chars 381-417, hits: 0)
+- Statement (location: source ID 45, line 19, chars 388-417, hits: 0)
+- Function "symbol" (location: source ID 45, line 21, chars 431-525, hits: 0)
+- Line (location: source ID 45, line 22, chars 504-517, hits: 0)
+- Statement (location: source ID 45, line 22, chars 504-517, hits: 0)
+
+Uncovered for src/Pool.sol:
+- Function "swap" (location: source ID 46, line 67, chars 2009-3002, hits: 0)
+- Line (location: source ID 46, line 68, chars 2125-2150, hits: 0)
+- Statement (location: source ID 46, line 68, chars 2125-2150, hits: 0)
+- Line (location: source ID 46, line 69, chars 2161-2186, hits: 0)
+- Statement (location: source ID 46, line 69, chars 2161-2186, hits: 0)
+- Line (location: source ID 46, line 70, chars 2200-2211, hits: 0)
+- Statement (location: source ID 46, line 70, chars 2200-2211, hits: 0)
+- Branch (branch: 0, path: 0) (location: source ID 46, line 70, chars 2197-2240, hits: 0)
+- Branch (branch: 0, path: 1) (location: source ID 46, line 70, chars 2197-2240, hits: 0)
+- Statement (location: source ID 46, line 70, chars 2213-2240, hits: 0)
+- Line (location: source ID 46, line 71, chars 2251-2284, hits: 0)
+- Statement (location: source ID 46, line 71, chars 2251-2284, hits: 0)
+- Line (location: source ID 46, line 72, chars 2295-2349, hits: 0)
+- Statement (location: source ID 46, line 72, chars 2295-2349, hits: 0)
+- Statement (location: source ID 46, line 72, chars 2316-2349, hits: 0)
+- Line (location: source ID 46, line 73, chars 2363-2422, hits: 0)
+- Statement (location: source ID 46, line 73, chars 2363-2422, hits: 0)
+- Statement (location: source ID 46, line 73, chars 2363-2410, hits: 0)
+- Statement (location: source ID 46, line 73, chars 2363-2406, hits: 0)
+- Branch (branch: 1, path: 0) (location: source ID 46, line 73, chars 2360-2451, hits: 0)
+- Branch (branch: 1, path: 1) (location: source ID 46, line 73, chars 2360-2451, hits: 0)
+- Statement (location: source ID 46, line 73, chars 2424-2451, hits: 0)
+- Line (location: source ID 46, line 74, chars 2531-2582, hits: 0)
+- Statement (location: source ID 46, line 74, chars 2531-2582, hits: 0)
+- Statement (location: source ID 46, line 74, chars 2556-2582, hits: 0)
+- Statement (location: source ID 46, line 74, chars 2556-2574, hits: 0)
+- Line (location: source ID 46, line 75, chars 2596-2616, hits: 0)
+- Statement (location: source ID 46, line 75, chars 2596-2616, hits: 0)
+- Branch (branch: 2, path: 0) (location: source ID 46, line 75, chars 2593-2702, hits: 0)
+- Branch (branch: 2, path: 1) (location: source ID 46, line 75, chars 2593-2702, hits: 0)
+- Line (location: source ID 46, line 76, chars 2632-2655, hits: 0)
+- Statement (location: source ID 46, line 76, chars 2632-2655, hits: 0)
+- Line (location: source ID 46, line 77, chars 2670-2690, hits: 0)
+- Statement (location: source ID 46, line 77, chars 2670-2690, hits: 0)
+- Line (location: source ID 46, line 80, chars 2731-2751, hits: 0)
+- Statement (location: source ID 46, line 80, chars 2731-2751, hits: 0)
+- Line (location: source ID 46, line 81, chars 2766-2789, hits: 0)
+- Statement (location: source ID 46, line 81, chars 2766-2789, hits: 0)
+- Line (location: source ID 46, line 83, chars 2811-2866, hits: 0)
+- Statement (location: source ID 46, line 83, chars 2811-2866, hits: 0)
+- Line (location: source ID 46, line 84, chars 2877-2933, hits: 0)
+- Statement (location: source ID 46, line 84, chars 2877-2933, hits: 0)
+- Line (location: source ID 46, line 85, chars 2944-2994, hits: 0)
+- Statement (location: source ID 46, line 85, chars 2944-2994, hits: 0)
+- Branch (branch: 4, path: 0) (location: source ID 46, line 98, chars 3554-3610, hits: 0)
+- Statement (location: source ID 46, line 98, chars 3582-3610, hits: 0)
+- Branch (branch: 5, path: 0) (location: source ID 46, line 113, chars 4309-4375, hits: 0)
+- Statement (location: source ID 46, line 113, chars 4346-4375, hits: 0)
+- Branch (branch: 6, path: 0) (location: source ID 46, line 119, chars 4694-4755, hits: 0)
+- Statement (location: source ID 46, line 119, chars 4727-4755, hits: 0)
+- Function "quote" (location: source ID 46, line 132, chars 5249-5448, hits: 0)
+- Line (location: source ID 46, line 133, chars 5361-5372, hits: 0)
+- Statement (location: source ID 46, line 133, chars 5361-5372, hits: 0)
+- Branch (branch: 7, path: 0) (location: source ID 46, line 133, chars 5358-5401, hits: 0)
+- Branch (branch: 7, path: 1) (location: source ID 46, line 133, chars 5358-5401, hits: 0)
+- Statement (location: source ID 46, line 133, chars 5374-5401, hits: 0)
+- Line (location: source ID 46, line 134, chars 5412-5440, hits: 0)
+- Statement (location: source ID 46, line 134, chars 5412-5440, hits: 0)
+- Statement (location: source ID 46, line 134, chars 5419-5440, hits: 0)
+- Branch (branch: 8, path: 0) (location: source ID 46, line 146, chars 5812-6285, hits: 0)
+- Branch (branch: 8, path: 1) (location: source ID 46, line 146, chars 5812-6285, hits: 0)
+- Branch (branch: 9, path: 0) (location: source ID 46, line 149, chars 5941-6274, hits: 0)
+- Branch (branch: 9, path: 1) (location: source ID 46, line 149, chars 5941-6274, hits: 0)
+- Line (location: source ID 46, line 150, chars 5981-6033, hits: 0)
+- Statement (location: source ID 46, line 150, chars 5981-6033, hits: 0)
+- Statement (location: source ID 46, line 150, chars 5998-6033, hits: 0)
+- Statement (location: source ID 46, line 150, chars 5998-6011, hits: 0)
+- Line (location: source ID 46, line 151, chars 6052-6103, hits: 0)
+- Statement (location: source ID 46, line 151, chars 6052-6103, hits: 0)
+- Statement (location: source ID 46, line 151, chars 6071-6103, hits: 0)
+- Statement (location: source ID 46, line 151, chars 6071-6091, hits: 0)
+- Line (location: source ID 46, line 152, chars 6159-6199, hits: 0)
+- Statement (location: source ID 46, line 152, chars 6159-6199, hits: 0)
+- Statement (location: source ID 46, line 152, chars 6176-6199, hits: 0)
+- Line (location: source ID 46, line 153, chars 6221-6234, hits: 0)
+- Statement (location: source ID 46, line 153, chars 6221-6234, hits: 0)
+- Branch (branch: 10, path: 0) (location: source ID 46, line 153, chars 6218-6258, hits: 0)
+- Branch (branch: 10, path: 1) (location: source ID 46, line 153, chars 6218-6258, hits: 0)
+- Statement (location: source ID 46, line 153, chars 6236-6258, hits: 0)
+- Branch (branch: 11, path: 0) (location: source ID 46, line 168, chars 6803-6840, hits: 0)
+- Statement (location: source ID 46, line 168, chars 6816-6840, hits: 0)
+- Branch (branch: 12, path: 0) (location: source ID 46, line 172, chars 6995-7032, hits: 0)
+- Statement (location: source ID 46, line 172, chars 7008-7032, hits: 0)
+- Function "sqrt" (location: source ID 46, line 179, chars 7201-8925, hits: 0)
+- Branch (branch: 13, path: 0) (location: source ID 46, line 181, chars 7292-7347, hits: 0)
+- Line (location: source ID 46, line 182, chars 7323-7331, hits: 0)
+- Statement (location: source ID 46, line 182, chars 7323-7331, hits: 0)
+- Branch (branch: 14, path: 0) (location: source ID 46, line 187, chars 7421-7516, hits: 0)
+- Line (location: source ID 46, line 188, chars 7462-7472, hits: 0)
+- Statement (location: source ID 46, line 188, chars 7462-7472, hits: 0)
+- Line (location: source ID 46, line 189, chars 7491-7500, hits: 0)
+- Statement (location: source ID 46, line 189, chars 7491-7500, hits: 0)
+- Branch (branch: 16, path: 0) (location: source ID 46, line 195, chars 7637-7730, hits: 0)
+- Line (location: source ID 46, line 196, chars 7677-7686, hits: 0)
+- Statement (location: source ID 46, line 196, chars 7677-7686, hits: 0)
+- Line (location: source ID 46, line 197, chars 7705-7714, hits: 0)
+- Statement (location: source ID 46, line 197, chars 7705-7714, hits: 0)
+- Branch (branch: 19, path: 0) (location: source ID 46, line 207, chars 7954-8044, hits: 0)
+- Line (location: source ID 46, line 208, chars 7993-8001, hits: 0)
+- Statement (location: source ID 46, line 208, chars 7993-8001, hits: 0)
+- Line (location: source ID 46, line 209, chars 8020-8028, hits: 0)
+- Statement (location: source ID 46, line 209, chars 8020-8028, hits: 0)
+
+Uncovered for src/TestERC20.sol:
+- Function "mint" (location: source ID 47, line 17, chars 484-579, hits: 0)
+- Line (location: source ID 47, line 18, chars 554-571, hits: 0)
+- Statement (location: source ID 47, line 18, chars 554-571, hits: 0)
+
+Uncovered for test/mocks/ERC20Mock.sol:
+- Function "decimals" (location: source ID 53, line 16, chars 455-545, hits: 0)
+- Line (location: source ID 53, line 17, chars 521-537, hits: 0)
+- Statement (location: source ID 53, line 17, chars 521-537, hits: 0)
+
+Anchors for Contract "ERC20Mock" (solc 0.8.20+commit.a1b79de6.Windows.msvc, source ID 53):
+- IC 349 -> Item 342
+  - Refers to item: Function "mint" (location: source ID 53, line 13, chars 364-449, hits: 16)
+- IC 830 -> Item 343
+  - Refers to item: Line (location: source ID 53, line 14, chars 424-441, hits: 16)
+- IC 830 -> Item 344
+  - Refers to item: Statement (location: source ID 53, line 14, chars 424-441, hits: 16)
+- IC 319 -> Item 345
+  - Refers to item: Function "decimals" (location: source ID 53, line 16, chars 455-545, hits: 0)
+- IC 792 -> Item 346
+  - Refers to item: Line (location: source ID 53, line 17, chars 521-537, hits: 0)
+- IC 792 -> Item 347
+  - Refers to item: Statement (location: source ID 53, line 17, chars 521-537, hits: 0)
+
+Anchors for Contract "Pool" (solc 0.8.20+commit.a1b79de6.Windows.msvc, source ID 46):
+- IC 349 -> Item 3
+  - Refers to item: Function "name" (location: source ID 45, line 18, chars 310-425, hits: 0)
+- IC 1270 -> Item 4
+  - Refers to item: Line (location: source ID 45, line 19, chars 381-417, hits: 0)
+- IC 1270 -> Item 5
+  - Refers to item: Statement (location: source ID 45, line 19, chars 381-417, hits: 0)
+- IC 1270 -> Item 6
+  - Refers to item: Statement (location: source ID 45, line 19, chars 388-417, hits: 0)
+- IC 896 -> Item 7
+  - Refers to item: Function "symbol" (location: source ID 45, line 21, chars 431-525, hits: 0)
+- IC 3094 -> Item 8
+  - Refers to item: Line (location: source ID 45, line 22, chars 504-517, hits: 0)
+- IC 3094 -> Item 9
+  - Refers to item: Statement (location: source ID 45, line 22, chars 504-517, hits: 0)
+- IC 1065 -> Item 10
+  - Refers to item: Function "swap" (location: source ID 46, line 67, chars 2009-3002, hits: 0)
+- IC 3729 -> Item 11
+  - Refers to item: Line (location: source ID 46, line 68, chars 2125-2150, hits: 0)
+- IC 3729 -> Item 12
+  - Refers to item: Statement (location: source ID 46, line 68, chars 2125-2150, hits: 0)
+- IC 3766 -> Item 13
+  - Refers to item: Line (location: source ID 46, line 69, chars 2161-2186, hits: 0)
+- IC 3766 -> Item 14
+  - Refers to item: Statement (location: source ID 46, line 69, chars 2161-2186, hits: 0)
+- IC 3803 -> Item 15
+  - Refers to item: Line (location: source ID 46, line 70, chars 2200-2211, hits: 0)
+- IC 3803 -> Item 16
+  - Refers to item: Statement (location: source ID 46, line 70, chars 2200-2211, hits: 0)
+- IC 3811 -> Item 17
+  - Refers to item: Branch (branch: 0, path: 0) (location: source ID 46, line 70, chars 2197-2240, hits: 0)
+- IC 3860 -> Item 18
+  - Refers to item: Branch (branch: 0, path: 1) (location: source ID 46, line 70, chars 2197-2240, hits: 0)
+- IC 3811 -> Item 19
+  - Refers to item: Statement (location: source ID 46, line 70, chars 2213-2240, hits: 0)
+- IC 3861 -> Item 20
+  - Refers to item: Line (location: source ID 46, line 71, chars 2251-2284, hits: 0)
+- IC 3861 -> Item 21
+  - Refers to item: Statement (location: source ID 46, line 71, chars 2251-2284, hits: 0)
+- IC 3873 -> Item 22
+  - Refers to item: Line (location: source ID 46, line 72, chars 2295-2349, hits: 0)
+- IC 3873 -> Item 23
+  - Refers to item: Statement (location: source ID 46, line 72, chars 2295-2349, hits: 0)
+- IC 3875 -> Item 24
+  - Refers to item: Statement (location: source ID 46, line 72, chars 2316-2349, hits: 0)
+- IC 3936 -> Item 25
+  - Refers to item: Line (location: source ID 46, line 73, chars 2363-2422, hits: 0)
+- IC 3936 -> Item 26
+  - Refers to item: Statement (location: source ID 46, line 73, chars 2363-2422, hits: 0)
+- IC 3937 -> Item 27
+  - Refers to item: Statement (location: source ID 46, line 73, chars 2363-2410, hits: 0)
+- IC 3939 -> Item 28
+  - Refers to item: Statement (location: source ID 46, line 73, chars 2363-2406, hits: 0)
+- IC 4077 -> Item 29
+  - Refers to item: Branch (branch: 1, path: 0) (location: source ID 46, line 73, chars 2360-2451, hits: 0)
+- IC 4126 -> Item 30
+  - Refers to item: Branch (branch: 1, path: 1) (location: source ID 46, line 73, chars 2360-2451, hits: 0)
+- IC 4077 -> Item 31
+  - Refers to item: Statement (location: source ID 46, line 73, chars 2424-2451, hits: 0)
+- IC 4127 -> Item 32
+  - Refers to item: Line (location: source ID 46, line 74, chars 2531-2582, hits: 0)
+- IC 4127 -> Item 33
+  - Refers to item: Statement (location: source ID 46, line 74, chars 2531-2582, hits: 0)
+- IC 4129 -> Item 34
+  - Refers to item: Statement (location: source ID 46, line 74, chars 2556-2582, hits: 0)
+- IC 4134 -> Item 35
+  - Refers to item: Statement (location: source ID 46, line 74, chars 2556-2574, hits: 0)
+- IC 4157 -> Item 36
+  - Refers to item: Line (location: source ID 46, line 75, chars 2596-2616, hits: 0)
+- IC 4157 -> Item 37
+  - Refers to item: Statement (location: source ID 46, line 75, chars 2596-2616, hits: 0)
+- IC 4208 -> Item 38
+  - Refers to item: Branch (branch: 2, path: 0) (location: source ID 46, line 75, chars 2593-2702, hits: 0)
+- IC 4262 -> Item 39
+  - Refers to item: Branch (branch: 2, path: 1) (location: source ID 46, line 75, chars 2593-2702, hits: 0)
+- IC 4208 -> Item 40
+  - Refers to item: Line (location: source ID 46, line 76, chars 2632-2655, hits: 0)
+- IC 4208 -> Item 41
+  - Refers to item: Statement (location: source ID 46, line 76, chars 2632-2655, hits: 0)
+- IC 4233 -> Item 42
+  - Refers to item: Line (location: source ID 46, line 77, chars 2670-2690, hits: 0)
+- IC 4233 -> Item 43
+  - Refers to item: Statement (location: source ID 46, line 77, chars 2670-2690, hits: 0)
+- IC 4263 -> Item 44
+  - Refers to item: Line (location: source ID 46, line 80, chars 2731-2751, hits: 0)
+- IC 4263 -> Item 45
+  - Refers to item: Statement (location: source ID 46, line 80, chars 2731-2751, hits: 0)
+- IC 4288 -> Item 46
+  - Refers to item: Line (location: source ID 46, line 81, chars 2766-2789, hits: 0)
+- IC 4288 -> Item 47
+  - Refers to item: Statement (location: source ID 46, line 81, chars 2766-2789, hits: 0)
+- IC 4314 -> Item 48
+  - Refers to item: Line (location: source ID 46, line 83, chars 2811-2866, hits: 0)
+- IC 4314 -> Item 49
+  - Refers to item: Statement (location: source ID 46, line 83, chars 2811-2866, hits: 0)
+- IC 4375 -> Item 50
+  - Refers to item: Line (location: source ID 46, line 84, chars 2877-2933, hits: 0)
+- IC 4375 -> Item 51
+  - Refers to item: Statement (location: source ID 46, line 84, chars 2877-2933, hits: 0)
+- IC 4387 -> Item 52
+  - Refers to item: Line (location: source ID 46, line 85, chars 2944-2994, hits: 0)
+- IC 4387 -> Item 53
+  - Refers to item: Statement (location: source ID 46, line 85, chars 2944-2994, hits: 0)
+- IC 1189 -> Item 54
+  - Refers to item: Function "deposit" (location: source ID 46, line 88, chars 3010-4203, hits: 4)
+- IC 4863 -> Item 55
+  - Refers to item: Line (location: source ID 46, line 89, chars 3107-3140, hits: 4)
+- IC 4863 -> Item 56
+  - Refers to item: Statement (location: source ID 46, line 89, chars 3107-3140, hits: 4)
+- IC 4864 -> Item 57
+  - Refers to item: Statement (location: source ID 46, line 89, chars 3127-3140, hits: 4)
+- IC 4874 -> Item 58
+  - Refers to item: Line (location: source ID 46, line 90, chars 3151-3210, hits: 4)
+- IC 4874 -> Item 59
+  - Refers to item: Statement (location: source ID 46, line 90, chars 3151-3210, hits: 4)
+- IC 4887 -> Item 60
+  - Refers to item: Line (location: source ID 46, line 91, chars 3221-3250, hits: 4)
+- IC 4887 -> Item 61
+  - Refers to item: Statement (location: source ID 46, line 91, chars 3221-3250, hits: 4)
+- IC 4897 -> Item 62
+  - Refers to item: Line (location: source ID 46, line 92, chars 3264-3281, hits: 4)
+- IC 4897 -> Item 63
+  - Refers to item: Statement (location: source ID 46, line 92, chars 3264-3281, hits: 4)
+- IC 4905 -> Item 64
+  - Refers to item: Branch (branch: 3, path: 0) (location: source ID 46, line 92, chars 3261-3471, hits: 3)
+- IC 4957 -> Item 65
+  - Refers to item: Branch (branch: 3, path: 1) (location: source ID 46, line 92, chars 3261-3471, hits: 1)
+- IC 4908 -> Item 66
+  - Refers to item: Line (location: source ID 46, line 93, chars 3297-3352, hits: 3)
+- IC 4908 -> Item 67
+  - Refers to item: Statement (location: source ID 46, line 93, chars 3297-3352, hits: 3)
+- IC 4940 -> Item 68
+  - Refers to item: Line (location: source ID 46, line 95, chars 3423-3459, hits: 3)
+- IC 4940 -> Item 69
+  - Refers to item: Statement (location: source ID 46, line 95, chars 3423-3459, hits: 3)
+- IC 4958 -> Item 70
+  - Refers to item: Line (location: source ID 46, line 97, chars 3490-3539, hits: 1)
+- IC 4958 -> Item 71
+  - Refers to item: Statement (location: source ID 46, line 97, chars 3490-3539, hits: 1)
+- IC 4960 -> Item 72
+  - Refers to item: Statement (location: source ID 46, line 97, chars 3514-3539, hits: 1)
+- IC 5004 -> Item 73
+  - Refers to item: Line (location: source ID 46, line 98, chars 3557-3580, hits: 1)
+- IC 5004 -> Item 74
+  - Refers to item: Statement (location: source ID 46, line 98, chars 3557-3580, hits: 1)
+- IC 5012 -> Item 75
+  - Refers to item: Branch (branch: 4, path: 0) (location: source ID 46, line 98, chars 3554-3610, hits: 0)
+- IC 5061 -> Item 76
+  - Refers to item: Branch (branch: 4, path: 1) (location: source ID 46, line 98, chars 3554-3610, hits: 1)
+- IC 5012 -> Item 77
+  - Refers to item: Statement (location: source ID 46, line 98, chars 3582-3610, hits: 0)
+- IC 5062 -> Item 78
+  - Refers to item: Line (location: source ID 46, line 99, chars 3625-3713, hits: 1)
+- IC 5062 -> Item 79
+  - Refers to item: Statement (location: source ID 46, line 99, chars 3625-3713, hits: 1)
+- IC 5120 -> Item 80
+  - Refers to item: Line (location: source ID 46, line 101, chars 3735-3763, hits: 4)
+- IC 5120 -> Item 81
+  - Refers to item: Statement (location: source ID 46, line 101, chars 3735-3763, hits: 4)
+- IC 5130 -> Item 82
+  - Refers to item: Line (location: source ID 46, line 102, chars 3774-3794, hits: 4)
+- IC 5130 -> Item 83
+  - Refers to item: Statement (location: source ID 46, line 102, chars 3774-3794, hits: 4)
+- IC 5144 -> Item 84
+  - Refers to item: Line (location: source ID 46, line 103, chars 3805-3825, hits: 4)
+- IC 5144 -> Item 85
+  - Refers to item: Statement (location: source ID 46, line 103, chars 3805-3825, hits: 4)
+- IC 5158 -> Item 86
+  - Refers to item: Line (location: source ID 46, line 104, chars 3836-3885, hits: 4)
+- IC 5158 -> Item 87
+  - Refers to item: Statement (location: source ID 46, line 104, chars 3836-3885, hits: 4)
+- IC 5180 -> Item 88
+  - Refers to item: Line (location: source ID 46, line 106, chars 3900-3931, hits: 4)
+- IC 5180 -> Item 89
+  - Refers to item: Statement (location: source ID 46, line 106, chars 3900-3931, hits: 4)
+- IC 5202 -> Item 90
+  - Refers to item: Line (location: source ID 46, line 107, chars 3996-4052, hits: 4)
+- IC 5202 -> Item 91
+  - Refers to item: Statement (location: source ID 46, line 107, chars 3996-4052, hits: 4)
+- IC 5263 -> Item 92
+  - Refers to item: Line (location: source ID 46, line 108, chars 4063-4123, hits: 4)
+- IC 5263 -> Item 93
+  - Refers to item: Statement (location: source ID 46, line 108, chars 4063-4123, hits: 4)
+- IC 5307 -> Item 94
+  - Refers to item: Line (location: source ID 46, line 109, chars 4134-4195, hits: 4)
+- IC 5307 -> Item 95
+  - Refers to item: Statement (location: source ID 46, line 109, chars 4134-4195, hits: 4)
+- IC 535 -> Item 96
+  - Refers to item: Function "withdraw" (location: source ID 46, line 112, chars 4211-5241, hits: 1)
+- IC 1686 -> Item 97
+  - Refers to item: Line (location: source ID 46, line 113, chars 4312-4344, hits: 1)
+- IC 1686 -> Item 98
+  - Refers to item: Statement (location: source ID 46, line 113, chars 4312-4344, hits: 1)
+- IC 1687 -> Item 99
+  - Refers to item: Statement (location: source ID 46, line 113, chars 4312-4333, hits: 1)
+- IC 1702 -> Item 100
+  - Refers to item: Branch (branch: 5, path: 0) (location: source ID 46, line 113, chars 4309-4375, hits: 0)
+- IC 1751 -> Item 101
+  - Refers to item: Branch (branch: 5, path: 1) (location: source ID 46, line 113, chars 4309-4375, hits: 1)
+- IC 1702 -> Item 102
+  - Refers to item: Statement (location: source ID 46, line 113, chars 4346-4375, hits: 0)
+- IC 1752 -> Item 103
+  - Refers to item: Line (location: source ID 46, line 114, chars 4386-4452, hits: 1)
+- IC 1752 -> Item 104
+  - Refers to item: Statement (location: source ID 46, line 114, chars 4386-4452, hits: 1)
+- IC 1764 -> Item 105
+  - Refers to item: Line (location: source ID 46, line 115, chars 4463-4522, hits: 1)
+- IC 1764 -> Item 106
+  - Refers to item: Statement (location: source ID 46, line 115, chars 4463-4522, hits: 1)
+- IC 1777 -> Item 107
+  - Refers to item: Line (location: source ID 46, line 116, chars 4533-4566, hits: 1)
+- IC 1777 -> Item 108
+  - Refers to item: Statement (location: source ID 46, line 116, chars 4533-4566, hits: 1)
+- IC 1779 -> Item 109
+  - Refers to item: Statement (location: source ID 46, line 116, chars 4553-4566, hits: 1)
+- IC 1789 -> Item 110
+  - Refers to item: Line (location: source ID 46, line 117, chars 4578-4625, hits: 1)
+- IC 1789 -> Item 111
+  - Refers to item: Statement (location: source ID 46, line 117, chars 4578-4625, hits: 1)
+- IC 1814 -> Item 112
+  - Refers to item: Line (location: source ID 46, line 118, chars 4636-4683, hits: 1)
+- IC 1814 -> Item 113
+  - Refers to item: Statement (location: source ID 46, line 118, chars 4636-4683, hits: 1)
+- IC 1839 -> Item 114
+  - Refers to item: Line (location: source ID 46, line 119, chars 4697-4725, hits: 1)
+- IC 1839 -> Item 115
+  - Refers to item: Statement (location: source ID 46, line 119, chars 4697-4725, hits: 1)
+- IC 1839 -> Item 116
+  - Refers to item: Statement (location: source ID 46, line 119, chars 4697-4709, hits: 1)
+- IC 1849 -> Item 117
+  - Refers to item: Statement (location: source ID 46, line 119, chars 4713-4725, hits: 1)
+- IC 1859 -> Item 118
+  - Refers to item: Branch (branch: 6, path: 0) (location: source ID 46, line 119, chars 4694-4755, hits: 0)
+- IC 1908 -> Item 119
+  - Refers to item: Branch (branch: 6, path: 1) (location: source ID 46, line 119, chars 4694-4755, hits: 1)
+- IC 1859 -> Item 120
+  - Refers to item: Statement (location: source ID 46, line 119, chars 4727-4755, hits: 0)
+- IC 1909 -> Item 121
+  - Refers to item: Line (location: source ID 46, line 120, chars 4766-4795, hits: 1)
+- IC 1909 -> Item 122
+  - Refers to item: Statement (location: source ID 46, line 120, chars 4766-4795, hits: 1)
+- IC 1919 -> Item 123
+  - Refers to item: Line (location: source ID 46, line 121, chars 4806-4836, hits: 1)
+- IC 1919 -> Item 124
+  - Refers to item: Statement (location: source ID 46, line 121, chars 4806-4836, hits: 1)
+- IC 1929 -> Item 125
+  - Refers to item: Line (location: source ID 46, line 122, chars 4847-4867, hits: 1)
+- IC 1929 -> Item 126
+  - Refers to item: Statement (location: source ID 46, line 122, chars 4847-4867, hits: 1)
+- IC 1943 -> Item 127
+  - Refers to item: Line (location: source ID 46, line 123, chars 4878-4898, hits: 1)
+- IC 1943 -> Item 128
+  - Refers to item: Statement (location: source ID 46, line 123, chars 4878-4898, hits: 1)
+- IC 1957 -> Item 129
+  - Refers to item: Line (location: source ID 46, line 124, chars 4909-4958, hits: 1)
+- IC 1957 -> Item 130
+  - Refers to item: Statement (location: source ID 46, line 124, chars 4909-4958, hits: 1)
+- IC 1979 -> Item 131
+  - Refers to item: Line (location: source ID 46, line 126, chars 4977-5008, hits: 1)
+- IC 1979 -> Item 132
+  - Refers to item: Statement (location: source ID 46, line 126, chars 4977-5008, hits: 1)
+- IC 2001 -> Item 133
+  - Refers to item: Line (location: source ID 46, line 127, chars 5073-5129, hits: 1)
+- IC 2001 -> Item 134
+  - Refers to item: Statement (location: source ID 46, line 127, chars 5073-5129, hits: 1)
+- IC 2062 -> Item 135
+  - Refers to item: Line (location: source ID 46, line 128, chars 5140-5181, hits: 1)
+- IC 2062 -> Item 136
+  - Refers to item: Statement (location: source ID 46, line 128, chars 5140-5181, hits: 1)
+- IC 2105 -> Item 137
+  - Refers to item: Line (location: source ID 46, line 129, chars 5192-5233, hits: 1)
+- IC 2105 -> Item 138
+  - Refers to item: Statement (location: source ID 46, line 129, chars 5192-5233, hits: 1)
+- IC 848 -> Item 139
+  - Refers to item: Function "quote" (location: source ID 46, line 132, chars 5249-5448, hits: 0)
+- IC 3015 -> Item 140
+  - Refers to item: Line (location: source ID 46, line 133, chars 5361-5372, hits: 0)
+- IC 3015 -> Item 141
+  - Refers to item: Statement (location: source ID 46, line 133, chars 5361-5372, hits: 0)
+- IC 3023 -> Item 142
+  - Refers to item: Branch (branch: 7, path: 0) (location: source ID 46, line 133, chars 5358-5401, hits: 0)
+- IC 3072 -> Item 143
+  - Refers to item: Branch (branch: 7, path: 1) (location: source ID 46, line 133, chars 5358-5401, hits: 0)
+- IC 3023 -> Item 144
+  - Refers to item: Statement (location: source ID 46, line 133, chars 5374-5401, hits: 0)
+- IC 3073 -> Item 145
+  - Refers to item: Line (location: source ID 46, line 134, chars 5412-5440, hits: 0)
+- IC 3073 -> Item 146
+  - Refers to item: Statement (location: source ID 46, line 134, chars 5412-5440, hits: 0)
+- IC 3073 -> Item 147
+  - Refers to item: Statement (location: source ID 46, line 134, chars 5419-5440, hits: 0)
+- IC 1004 -> Item 148
+  - Refers to item: Function "getTokens" (location: source ID 46, line 137, chars 5456-5560, hits: 6)
+- IC 3393 -> Item 149
+  - Refers to item: Line (location: source ID 46, line 138, chars 5525-5552, hits: 6)
+- IC 3393 -> Item 150
+  - Refers to item: Statement (location: source ID 46, line 138, chars 5525-5552, hits: 6)
+- IC 5569 -> Item 151
+  - Refers to item: Function "mintFee" (location: source ID 46, line 143, chars 5646-6292, hits: 5)
+- IC 5570 -> Item 152
+  - Refers to item: Line (location: source ID 46, line 144, chars 5713-5771, hits: 5)
+- IC 5570 -> Item 153
+  - Refers to item: Statement (location: source ID 46, line 144, chars 5713-5771, hits: 5)
+- IC 5572 -> Item 154
+  - Refers to item: Statement (location: source ID 46, line 144, chars 5729-5771, hits: 5)
+- IC 5717 -> Item 155
+  - Refers to item: Line (location: source ID 46, line 145, chars 5782-5801, hits: 5)
+- IC 5717 -> Item 156
+  - Refers to item: Statement (location: source ID 46, line 145, chars 5782-5801, hits: 5)
+- IC 5724 -> Item 157
+  - Refers to item: Line (location: source ID 46, line 146, chars 5815-5826, hits: 5)
+- IC 5724 -> Item 158
+  - Refers to item: Statement (location: source ID 46, line 146, chars 5815-5826, hits: 5)
+- IC 5864 -> Item 159
+  - Refers to item: Branch (branch: 8, path: 0) (location: source ID 46, line 146, chars 5812-6285, hits: 0)
+- IC 5874 -> Item 160
+  - Refers to item: Branch (branch: 8, path: 1) (location: source ID 46, line 146, chars 5812-6285, hits: 0)
+- IC 5732 -> Item 161
+  - Refers to item: Line (location: source ID 46, line 147, chars 5842-5882, hits: 2)
+- IC 5732 -> Item 162
+  - Refers to item: Statement (location: source ID 46, line 147, chars 5842-5882, hits: 2)
+- IC 5734 -> Item 163
+  - Refers to item: Statement (location: source ID 46, line 147, chars 5855-5882, hits: 2)
+- IC 5756 -> Item 164
+  - Refers to item: Line (location: source ID 46, line 148, chars 5897-5926, hits: 2)
+- IC 5756 -> Item 165
+  - Refers to item: Statement (location: source ID 46, line 148, chars 5897-5926, hits: 2)
+- IC 5758 -> Item 166
+  - Refers to item: Statement (location: source ID 46, line 148, chars 5914-5926, hits: 2)
+- IC 5769 -> Item 167
+  - Refers to item: Line (location: source ID 46, line 149, chars 5944-5961, hits: 2)
+- IC 5769 -> Item 168
+  - Refers to item: Statement (location: source ID 46, line 149, chars 5944-5961, hits: 2)
+- IC 5864 -> Item 169
+  - Refers to item: Branch (branch: 9, path: 0) (location: source ID 46, line 149, chars 5941-6274, hits: 0)
+- IC 5874 -> Item 170
+  - Refers to item: Branch (branch: 9, path: 1) (location: source ID 46, line 149, chars 5941-6274, hits: 0)
+- IC 5777 -> Item 171
+  - Refers to item: Line (location: source ID 46, line 150, chars 5981-6033, hits: 0)
+- IC 5777 -> Item 172
+  - Refers to item: Statement (location: source ID 46, line 150, chars 5981-6033, hits: 0)
+- IC 5779 -> Item 173
+  - Refers to item: Statement (location: source ID 46, line 150, chars 5998-6033, hits: 0)
+- IC 5791 -> Item 174
+  - Refers to item: Statement (location: source ID 46, line 150, chars 5998-6011, hits: 0)
+- IC 5811 -> Item 175
+  - Refers to item: Line (location: source ID 46, line 151, chars 6052-6103, hits: 0)
+- IC 5811 -> Item 176
+  - Refers to item: Statement (location: source ID 46, line 151, chars 6052-6103, hits: 0)
+- IC 5813 -> Item 177
+  - Refers to item: Statement (location: source ID 46, line 151, chars 6071-6103, hits: 0)
+- IC 5816 -> Item 178
+  - Refers to item: Statement (location: source ID 46, line 151, chars 6071-6091, hits: 0)
+- IC 5839 -> Item 179
+  - Refers to item: Line (location: source ID 46, line 152, chars 6159-6199, hits: 0)
+- IC 5839 -> Item 180
+  - Refers to item: Statement (location: source ID 46, line 152, chars 6159-6199, hits: 0)
+- IC 5841 -> Item 181
+  - Refers to item: Statement (location: source ID 46, line 152, chars 6176-6199, hits: 0)
+- IC 5855 -> Item 182
+  - Refers to item: Line (location: source ID 46, line 153, chars 6221-6234, hits: 0)
+- IC 5855 -> Item 183
+  - Refers to item: Statement (location: source ID 46, line 153, chars 6221-6234, hits: 0)
+- IC 5864 -> Item 184
+  - Refers to item: Branch (branch: 10, path: 0) (location: source ID 46, line 153, chars 6218-6258, hits: 0)
+- IC 5874 -> Item 185
+  - Refers to item: Branch (branch: 10, path: 1) (location: source ID 46, line 153, chars 6218-6258, hits: 0)
+- IC 5864 -> Item 186
+  - Refers to item: Statement (location: source ID 46, line 153, chars 6236-6258, hits: 0)
+- IC 6246 -> Item 187
+  - Refers to item: Function "_quote" (location: source ID 46, line 159, chars 6302-6626, hits: 1)
+- IC 6249 -> Item 188
+  - Refers to item: Line (location: source ID 46, line 160, chars 6389-6414, hits: 1)
+- IC 6249 -> Item 189
+  - Refers to item: Statement (location: source ID 46, line 160, chars 6389-6414, hits: 1)
+- IC 6285 -> Item 190
+  - Refers to item: Line (location: source ID 46, line 161, chars 6425-6488, hits: 1)
+- IC 6285 -> Item 191
+  - Refers to item: Statement (location: source ID 46, line 161, chars 6425-6488, hits: 1)
+- IC 6287 -> Item 192
+  - Refers to item: Statement (location: source ID 46, line 161, chars 6447-6488, hits: 1)
+- IC 6352 -> Item 193
+  - Refers to item: Line (location: source ID 46, line 162, chars 6499-6563, hits: 1)
+- IC 6352 -> Item 194
+  - Refers to item: Statement (location: source ID 46, line 162, chars 6499-6563, hits: 1)
+- IC 6354 -> Item 195
+  - Refers to item: Statement (location: source ID 46, line 162, chars 6522-6563, hits: 1)
+- IC 6419 -> Item 196
+  - Refers to item: Line (location: source ID 46, line 163, chars 6574-6618, hits: 1)
+- IC 6419 -> Item 197
+  - Refers to item: Statement (location: source ID 46, line 163, chars 6574-6618, hits: 1)
+- IC 6419 -> Item 198
+  - Refers to item: Statement (location: source ID 46, line 163, chars 6581-6618, hits: 1)
+- IC 5375 -> Item 199
+  - Refers to item: Function "p_transferFrom" (location: source ID 46, line 166, chars 6634-6848, hits: 9)
+- IC 5376 -> Item 200
+  - Refers to item: Line (location: source ID 46, line 167, chars 6733-6792, hits: 9)
+- IC 5376 -> Item 201
+  - Refers to item: Statement (location: source ID 46, line 167, chars 6733-6792, hits: 9)
+- IC 5378 -> Item 202
+  - Refers to item: Statement (location: source ID 46, line 167, chars 6748-6792, hits: 9)
+- IC 5508 -> Item 203
+  - Refers to item: Line (location: source ID 46, line 168, chars 6806-6814, hits: 9)
+- IC 5508 -> Item 204
+  - Refers to item: Statement (location: source ID 46, line 168, chars 6806-6814, hits: 9)
+- IC 5513 -> Item 205
+  - Refers to item: Branch (branch: 11, path: 0) (location: source ID 46, line 168, chars 6803-6840, hits: 0)
+- IC 5562 -> Item 206
+  - Refers to item: Branch (branch: 11, path: 1) (location: source ID 46, line 168, chars 6803-6840, hits: 9)
+- IC 5513 -> Item 207
+  - Refers to item: Statement (location: source ID 46, line 168, chars 6816-6840, hits: 0)
+- IC 6038 -> Item 208
+  - Refers to item: Function "p_transfer" (location: source ID 46, line 170, chars 6854-7040, hits: 2)
+- IC 6039 -> Item 209
+  - Refers to item: Line (location: source ID 46, line 171, chars 6935-6984, hits: 2)
+- IC 6039 -> Item 210
+  - Refers to item: Statement (location: source ID 46, line 171, chars 6935-6984, hits: 2)
+- IC 6041 -> Item 211
+  - Refers to item: Statement (location: source ID 46, line 171, chars 6950-6984, hits: 2)
+- IC 6169 -> Item 212
+  - Refers to item: Line (location: source ID 46, line 172, chars 6998-7006, hits: 2)
+- IC 6169 -> Item 213
+  - Refers to item: Statement (location: source ID 46, line 172, chars 6998-7006, hits: 2)
+- IC 6174 -> Item 214
+  - Refers to item: Branch (branch: 12, path: 0) (location: source ID 46, line 172, chars 6995-7032, hits: 0)
+- IC 6223 -> Item 215
+  - Refers to item: Branch (branch: 12, path: 1) (location: source ID 46, line 172, chars 6995-7032, hits: 2)
+- IC 6174 -> Item 216
+  - Refers to item: Statement (location: source ID 46, line 172, chars 7008-7032, hits: 0)
+- IC 6603 -> Item 217
+  - Refers to item: Function "min" (location: source ID 46, line 175, chars 7048-7154, hits: 1)
+- IC 6606 -> Item 218
+  - Refers to item: Line (location: source ID 46, line 176, chars 7126-7146, hits: 1)
+- IC 6606 -> Item 219
+  - Refers to item: Statement (location: source ID 46, line 176, chars 7126-7146, hits: 1)
+- IC 6606 -> Item 220
+  - Refers to item: Statement (location: source ID 46, line 176, chars 7133-7146, hits: 1)
+- IC 674 -> Item 221
+  - Refers to item: Function "sqrt" (location: source ID 46, line 179, chars 7201-8925, hits: 0)
+- IC 2318 -> Item 222
+  - Refers to item: Line (location: source ID 46, line 181, chars 7296-7302, hits: 7)
+- IC 2318 -> Item 223
+  - Refers to item: Statement (location: source ID 46, line 181, chars 7296-7302, hits: 7)
+- IC 2326 -> Item 224
+  - Refers to item: Branch (branch: 13, path: 0) (location: source ID 46, line 181, chars 7292-7347, hits: 0)
+- IC 2333 -> Item 225
+  - Refers to item: Branch (branch: 13, path: 1) (location: source ID 46, line 181, chars 7292-7347, hits: 7)
+- IC 2326 -> Item 226
+  - Refers to item: Line (location: source ID 46, line 182, chars 7323-7331, hits: 0)
+- IC 2326 -> Item 227
+  - Refers to item: Statement (location: source ID 46, line 182, chars 7323-7331, hits: 0)
+- IC 2334 -> Item 228
+  - Refers to item: Line (location: source ID 46, line 184, chars 7361-7375, hits: 7)
+- IC 2334 -> Item 229
+  - Refers to item: Statement (location: source ID 46, line 184, chars 7361-7375, hits: 7)
+- IC 2339 -> Item 230
+  - Refers to item: Line (location: source ID 46, line 185, chars 7390-7404, hits: 7)
+- IC 2339 -> Item 231
+  - Refers to item: Statement (location: source ID 46, line 185, chars 7390-7404, hits: 7)
+- IC 2345 -> Item 232
+  - Refers to item: Line (location: source ID 46, line 187, chars 7425-7441, hits: 7)
+- IC 2345 -> Item 233
+  - Refers to item: Statement (location: source ID 46, line 187, chars 7425-7441, hits: 7)
+- IC 2369 -> Item 234
+  - Refers to item: Branch (branch: 14, path: 0) (location: source ID 46, line 187, chars 7421-7516, hits: 0)
+- IC 2383 -> Item 235
+  - Refers to item: Branch (branch: 14, path: 1) (location: source ID 46, line 187, chars 7421-7516, hits: 7)
+- IC 2369 -> Item 236
+  - Refers to item: Line (location: source ID 46, line 188, chars 7462-7472, hits: 0)
+- IC 2369 -> Item 237
+  - Refers to item: Statement (location: source ID 46, line 188, chars 7462-7472, hits: 0)
+- IC 2376 -> Item 238
+  - Refers to item: Line (location: source ID 46, line 189, chars 7491-7500, hits: 0)
+- IC 2376 -> Item 239
+  - Refers to item: Statement (location: source ID 46, line 189, chars 7491-7500, hits: 0)
+- IC 2384 -> Item 240
+  - Refers to item: Line (location: source ID 46, line 191, chars 7534-7549, hits: 7)
+- IC 2384 -> Item 241
+  - Refers to item: Statement (location: source ID 46, line 191, chars 7534-7549, hits: 7)
+- IC 2400 -> Item 242
+  - Refers to item: Branch (branch: 15, path: 0) (location: source ID 46, line 191, chars 7530-7623, hits: 7)
+- IC 2414 -> Item 243
+  - Refers to item: Branch (branch: 15, path: 1) (location: source ID 46, line 191, chars 7530-7623, hits: 7)
+- IC 2400 -> Item 244
+  - Refers to item: Line (location: source ID 46, line 192, chars 7570-7579, hits: 7)
+- IC 2400 -> Item 245
+  - Refers to item: Statement (location: source ID 46, line 192, chars 7570-7579, hits: 7)
+- IC 2407 -> Item 246
+  - Refers to item: Line (location: source ID 46, line 193, chars 7598-7607, hits: 7)
+- IC 2407 -> Item 247
+  - Refers to item: Statement (location: source ID 46, line 193, chars 7598-7607, hits: 7)
+- IC 2415 -> Item 248
+  - Refers to item: Line (location: source ID 46, line 195, chars 7641-7656, hits: 7)
+- IC 2415 -> Item 249
+  - Refers to item: Statement (location: source ID 46, line 195, chars 7641-7656, hits: 7)
+- IC 2427 -> Item 250
+  - Refers to item: Branch (branch: 16, path: 0) (location: source ID 46, line 195, chars 7637-7730, hits: 0)
+- IC 2441 -> Item 251
+  - Refers to item: Branch (branch: 16, path: 1) (location: source ID 46, line 195, chars 7637-7730, hits: 7)
+- IC 2427 -> Item 252
+  - Refers to item: Line (location: source ID 46, line 196, chars 7677-7686, hits: 0)
+- IC 2427 -> Item 253
+  - Refers to item: Statement (location: source ID 46, line 196, chars 7677-7686, hits: 0)
+- IC 2434 -> Item 254
+  - Refers to item: Line (location: source ID 46, line 197, chars 7705-7714, hits: 0)
+- IC 2434 -> Item 255
+  - Refers to item: Statement (location: source ID 46, line 197, chars 7705-7714, hits: 0)
+- IC 2442 -> Item 256
+  - Refers to item: Line (location: source ID 46, line 199, chars 7748-7763, hits: 7)
+- IC 2442 -> Item 257
+  - Refers to item: Statement (location: source ID 46, line 199, chars 7748-7763, hits: 7)
+- IC 2452 -> Item 258
+  - Refers to item: Branch (branch: 17, path: 0) (location: source ID 46, line 199, chars 7744-7836, hits: 7)
+- IC 2466 -> Item 259
+  - Refers to item: Branch (branch: 17, path: 1) (location: source ID 46, line 199, chars 7744-7836, hits: 7)
+- IC 2452 -> Item 260
+  - Refers to item: Line (location: source ID 46, line 200, chars 7784-7793, hits: 7)
+- IC 2452 -> Item 261
+  - Refers to item: Statement (location: source ID 46, line 200, chars 7784-7793, hits: 7)
+- IC 2459 -> Item 262
+  - Refers to item: Line (location: source ID 46, line 201, chars 7812-7820, hits: 7)
+- IC 2459 -> Item 263
+  - Refers to item: Statement (location: source ID 46, line 201, chars 7812-7820, hits: 7)
+- IC 2467 -> Item 264
+  - Refers to item: Line (location: source ID 46, line 203, chars 7854-7868, hits: 7)
+- IC 2467 -> Item 265
+  - Refers to item: Statement (location: source ID 46, line 203, chars 7854-7868, hits: 7)
+- IC 2476 -> Item 266
+  - Refers to item: Branch (branch: 18, path: 0) (location: source ID 46, line 203, chars 7850-7940, hits: 7)
+- IC 2490 -> Item 267
+  - Refers to item: Branch (branch: 18, path: 1) (location: source ID 46, line 203, chars 7850-7940, hits: 7)
+- IC 2476 -> Item 268
+  - Refers to item: Line (location: source ID 46, line 204, chars 7889-7897, hits: 7)
+- IC 2476 -> Item 269
+  - Refers to item: Statement (location: source ID 46, line 204, chars 7889-7897, hits: 7)
+- IC 2483 -> Item 270
+  - Refers to item: Line (location: source ID 46, line 205, chars 7916-7924, hits: 7)
+- IC 2483 -> Item 271
+  - Refers to item: Statement (location: source ID 46, line 205, chars 7916-7924, hits: 7)
+- IC 2491 -> Item 272
+  - Refers to item: Line (location: source ID 46, line 207, chars 7958-7972, hits: 7)
+- IC 2491 -> Item 273
+  - Refers to item: Statement (location: source ID 46, line 207, chars 7958-7972, hits: 7)
+- IC 2499 -> Item 274
+  - Refers to item: Branch (branch: 19, path: 0) (location: source ID 46, line 207, chars 7954-8044, hits: 0)
+- IC 2513 -> Item 275
+  - Refers to item: Branch (branch: 19, path: 1) (location: source ID 46, line 207, chars 7954-8044, hits: 7)
+- IC 2499 -> Item 276
+  - Refers to item: Line (location: source ID 46, line 208, chars 7993-8001, hits: 0)
+- IC 2499 -> Item 277
+  - Refers to item: Statement (location: source ID 46, line 208, chars 7993-8001, hits: 0)
+- IC 2506 -> Item 278
+  - Refers to item: Line (location: source ID 46, line 209, chars 8020-8028, hits: 0)
+- IC 2506 -> Item 279
+  - Refers to item: Statement (location: source ID 46, line 209, chars 8020-8028, hits: 0)
+- IC 2514 -> Item 280
+  - Refers to item: Line (location: source ID 46, line 211, chars 8062-8076, hits: 7)
+- IC 2514 -> Item 281
+  - Refers to item: Statement (location: source ID 46, line 211, chars 8062-8076, hits: 7)
+- IC 2522 -> Item 282
+  - Refers to item: Branch (branch: 20, path: 0) (location: source ID 46, line 211, chars 8058-8121, hits: 7)
+- IC 2529 -> Item 283
+  - Refers to item: Branch (branch: 20, path: 1) (location: source ID 46, line 211, chars 8058-8121, hits: 7)
+- IC 2522 -> Item 284
+  - Refers to item: Line (location: source ID 46, line 212, chars 8097-8105, hits: 7)
+- IC 2522 -> Item 285
+  - Refers to item: Statement (location: source ID 46, line 212, chars 8097-8105, hits: 7)
+- IC 2530 -> Item 286
+  - Refers to item: Line (location: source ID 46, line 214, chars 8135-8153, hits: 7)
+- IC 2530 -> Item 287
+  - Refers to item: Statement (location: source ID 46, line 214, chars 8135-8153, hits: 7)
+- IC 2540 -> Item 288
+  - Refers to item: Line (location: source ID 46, line 215, chars 8210-8233, hits: 7)
+- IC 2540 -> Item 289
+  - Refers to item: Statement (location: source ID 46, line 215, chars 8210-8233, hits: 7)
+- IC 2565 -> Item 290
+  - Refers to item: Line (location: source ID 46, line 216, chars 8320-8343, hits: 7)
+- IC 2565 -> Item 291
+  - Refers to item: Statement (location: source ID 46, line 216, chars 8320-8343, hits: 7)
+- IC 2590 -> Item 292
+  - Refers to item: Line (location: source ID 46, line 217, chars 8432-8455, hits: 7)
+- IC 2590 -> Item 293
+  - Refers to item: Statement (location: source ID 46, line 217, chars 8432-8455, hits: 7)
+- IC 2615 -> Item 294
+  - Refers to item: Line (location: source ID 46, line 218, chars 8542-8565, hits: 7)
+- IC 2615 -> Item 295
+  - Refers to item: Statement (location: source ID 46, line 218, chars 8542-8565, hits: 7)
+- IC 2640 -> Item 296
+  - Refers to item: Line (location: source ID 46, line 219, chars 8653-8676, hits: 7)
+- IC 2640 -> Item 297
+  - Refers to item: Statement (location: source ID 46, line 219, chars 8653-8676, hits: 7)
+- IC 2665 -> Item 298
+  - Refers to item: Line (location: source ID 46, line 220, chars 8764-8787, hits: 7)
+- IC 2665 -> Item 299
+  - Refers to item: Statement (location: source ID 46, line 220, chars 8764-8787, hits: 7)
+- IC 2690 -> Item 300
+  - Refers to item: Line (location: source ID 46, line 221, chars 8875-8906, hits: 7)
+- IC 2690 -> Item 301
+  - Refers to item: Statement (location: source ID 46, line 221, chars 8875-8906, hits: 7)
+- IC 2690 -> Item 302
+  - Refers to item: Statement (location: source ID 46, line 221, chars 8882-8906, hits: 7)
+- IC 2690 -> Item 303
+  - Refers to item: Statement (location: source ID 46, line 221, chars 8887-8906, hits: 7)
+- IC 6234 -> Item 304
+  - Refers to item: Function "toUint" (location: source ID 46, line 227, chars 8938-9114, hits: 7)
+- IC 6237 -> Item 305
+  - Refers to item: Line (location: source ID 46, line 230, chars 9074-9096, hits: 7)
+- IC 6237 -> Item 306
+  - Refers to item: Statement (location: source ID 46, line 230, chars 9074-9096, hits: 7)
+
+Anchors for Contract "MyToken" (solc 0.8.20+commit.a1b79de6.Windows.msvc, source ID 47):
+- IC 488 -> Item 0
+  - Refers to item: Function "mint" (location: source ID 47, line 17, chars 484-579, hits: 0)
+- IC 1141 -> Item 1
+  - Refers to item: Line (location: source ID 47, line 18, chars 554-571, hits: 0)
+- IC 1141 -> Item 2
+  - Refers to item: Statement (location: source ID 47, line 18, chars 554-571, hits: 0)
+
+Anchors for Contract "LP" (solc 0.8.20+commit.a1b79de6.Windows.msvc, source ID 45):
+- IC 185 -> Item 3
+  - Refers to item: Function "name" (location: source ID 45, line 18, chars 310-425, hits: 0)
+- IC 654 -> Item 4
+  - Refers to item: Line (location: source ID 45, line 19, chars 381-417, hits: 0)
+- IC 654 -> Item 5
+  - Refers to item: Statement (location: source ID 45, line 19, chars 381-417, hits: 0)
+- IC 654 -> Item 6
+  - Refers to item: Statement (location: source ID 45, line 19, chars 388-417, hits: 0)
+- IC 497 -> Item 7
+  - Refers to item: Function "symbol" (location: source ID 45, line 21, chars 431-525, hits: 0)
+- IC 1273 -> Item 8
+  - Refers to item: Line (location: source ID 45, line 22, chars 504-517, hits: 0)
+- IC 1273 -> Item 9
+  - Refers to item: Statement (location: source ID 45, line 22, chars 504-517, hits: 0)
+
+Anchors for Contract "Factory" (solc 0.8.20+commit.a1b79de6.Windows.msvc, source ID 44):
+- IC 163 -> Item 307
+  - Refers to item: Function "createPool" (location: source ID 44, line 20, chars 489-1055, hits: 9)
+- IC 426 -> Item 308
+  - Refers to item: Line (location: source ID 44, line 21, chars 593-608, hits: 9)
+- IC 426 -> Item 309
+  - Refers to item: Statement (location: source ID 44, line 21, chars 593-608, hits: 9)
+- IC 479 -> Item 310
+  - Refers to item: Branch (branch: 0, path: 0) (location: source ID 44, line 21, chars 590-662, hits: 0)
+- IC 528 -> Item 311
+  - Refers to item: Branch (branch: 0, path: 1) (location: source ID 44, line 21, chars 590-662, hits: 9)
+- IC 479 -> Item 312
+  - Refers to item: Line (location: source ID 44, line 22, chars 624-650, hits: 0)
+- IC 479 -> Item 313
+  - Refers to item: Statement (location: source ID 44, line 22, chars 624-650, hits: 0)
+- IC 529 -> Item 314
+  - Refers to item: Line (location: source ID 44, line 24, chars 675-691, hits: 9)
+- IC 529 -> Item 315
+  - Refers to item: Statement (location: source ID 44, line 24, chars 675-691, hits: 9)
+- IC 581 -> Item 316
+  - Refers to item: Branch (branch: 1, path: 0) (location: source ID 44, line 24, chars 672-749, hits: 0)
+- IC 630 -> Item 317
+  - Refers to item: Branch (branch: 1, path: 1) (location: source ID 44, line 24, chars 672-749, hits: 9)
+- IC 581 -> Item 318
+  - Refers to item: Line (location: source ID 44, line 25, chars 707-737, hits: 0)
+- IC 581 -> Item 319
+  - Refers to item: Statement (location: source ID 44, line 25, chars 707-737, hits: 0)
+- IC 631 -> Item 320
+  - Refers to item: Line (location: source ID 44, line 27, chars 762-799, hits: 9)
+- IC 631 -> Item 321
+  - Refers to item: Statement (location: source ID 44, line 27, chars 762-799, hits: 9)
+- IC 631 -> Item 322
+  - Refers to item: Statement (location: source ID 44, line 27, chars 789-799, hits: 9)
+- IC 839 -> Item 323
+  - Refers to item: Branch (branch: 2, path: 0) (location: source ID 44, line 27, chars 759-855, hits: 0)
+- IC 888 -> Item 324
+  - Refers to item: Branch (branch: 2, path: 1) (location: source ID 44, line 27, chars 759-855, hits: 9)
+- IC 839 -> Item 325
+  - Refers to item: Line (location: source ID 44, line 28, chars 815-843, hits: 0)
+- IC 839 -> Item 326
+  - Refers to item: Statement (location: source ID 44, line 28, chars 815-843, hits: 0)
+- IC 889 -> Item 327
+  - Refers to item: Line (location: source ID 44, line 31, chars 867-904, hits: 9)
+- IC 889 -> Item 328
+  - Refers to item: Statement (location: source ID 44, line 31, chars 867-904, hits: 9)
+- IC 891 -> Item 329
+  - Refers to item: Statement (location: source ID 44, line 31, chars 880-904, hits: 9)
+- IC 952 -> Item 330
+  - Refers to item: Line (location: source ID 44, line 32, chars 915-943, hits: 9)
+- IC 952 -> Item 331
+  - Refers to item: Statement (location: source ID 44, line 32, chars 915-943, hits: 9)
+- IC 955 -> Item 332
+  - Refers to item: Line (location: source ID 44, line 33, chars 954-991, hits: 9)
+- IC 955 -> Item 333
+  - Refers to item: Statement (location: source ID 44, line 33, chars 954-991, hits: 9)
+- IC 1141 -> Item 334
+  - Refers to item: Line (location: source ID 44, line 34, chars 1002-1047, hits: 9)
+- IC 1141 -> Item 335
+  - Refers to item: Statement (location: source ID 44, line 34, chars 1002-1047, hits: 9)
+- IC 109 -> Item 336
+  - Refers to item: Function "getPool" (location: source ID 44, line 37, chars 1063-1191, hits: 1)
+- IC 260 -> Item 337
+  - Refers to item: Line (location: source ID 44, line 38, chars 1153-1183, hits: 1)
+- IC 260 -> Item 338
+  - Refers to item: Statement (location: source ID 44, line 38, chars 1153-1183, hits: 1)
+- IC 75 -> Item 339
+  - Refers to item: Function "getProtocolBeneficiary" (location: source ID 44, line 41, chars 1199-1297, hits: 9)
+- IC 220 -> Item 340
+  - Refers to item: Line (location: source ID 44, line 42, chars 1275-1289, hits: 9)
+- IC 220 -> Item 341
+  - Refers to item: Statement (location: source ID 44, line 42, chars 1275-1289, hits: 9)
+

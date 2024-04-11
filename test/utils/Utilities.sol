@@ -15,6 +15,17 @@ contract Utilities is Test{
         liquidity = pool.deposit(token0Amount, token1Amount);
         vm.stopPrank();
     }
+    function withdrawAmounts(Pool pool, uint lpAmount, address from) public returns (uint amount0, uint amount1){
+        vm.startPrank(from);
+        pool.approve(address(pool), lpAmount);
+        (amount0, amount1) = pool.withdraw(lpAmount);
+        vm.stopPrank();
+    }
+
+    function sortTokens(address token0, address token1) public pure returns (address tokenAddress0, address tokenAddress1){
+        tokenAddress0 = token0 > token1 ? token1 : token0;
+        tokenAddress1 = token0 > token1 ? token0 : token1;
+    }
     // add this to be excluded from coverage report
     function test() public {}
 }
