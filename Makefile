@@ -29,6 +29,8 @@ slither :; slither . --config-file slither.config.json
 
 aderyn :; aderyn .
  
+testERC20Test:; forge test --mc TestERC20Test -vvv
+testLP:; forge test --mc LPTest -vvv
 testFactory:; forge test --mc FactoryTest -vvv
 testPoolDeposits:; forge test --mc PoolDepositsTest -vvv
 testPoolWithdraws:; forge test --mc PoolWithdrawsTest -vv

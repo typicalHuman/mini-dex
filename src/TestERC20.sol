@@ -5,6 +5,8 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 
+
+// Contract for remix manual testing
 contract MyToken is ERC20, Ownable, ERC20Permit {
     constructor(string memory symbol)
         ERC20(symbol, symbol)

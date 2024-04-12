@@ -2,13 +2,12 @@
 pragma solidity ^0.8.20;
 
 import {Test, console} from "forge-std/Test.sol";
-import {ERC20Mock} from "./mocks/ERC20Mock.sol";
+import {ERC20Mock} from "./mocks/ERC20Mock.t.sol";
 import {Factory} from "../src/Factory.sol";
 import {Pool} from "../src/Pool.sol";
 import {Utilities} from "./utils/Utilities.sol";
 contract BaseTest is Test {
-
-    uint constant MINIMUM_LIQUIDITY = 10**3;
+    uint constant MINIMUM_LIQUIDITY = 10 ** 3;
     uint constant INITIAL_USDT_BALANCE = 10000e6;
     uint constant INITIAL_WETH_BALANCE = 100e18;
 
@@ -22,19 +21,19 @@ contract BaseTest is Test {
     Pool public pool;
 
     Utilities internal utils;
-    
+
     address public owner = vm.addr(1);
     address public lp = vm.addr(2);
     address public randUser = vm.addr(50);
 
-    function setUp() public virtual{
+    function setUp() public virtual {
         utils = new Utilities();
 
         _setUpMocks();
         _labelContracts();
     }
 
-    function _setUpMocks() internal{
+    function _setUpMocks() internal {
         usdt = new ERC20Mock("USDT", "USDT", 6);
         weth = new ERC20Mock("WETH", "WETH", 6);
         usdtAddress = address(usdt);
@@ -47,13 +46,15 @@ contract BaseTest is Test {
         vm.prank(owner);
         factory = new Factory();
 
-
         vm.startPrank(lp);
-        (address token0, address token1) = utils.sortTokens(usdtAddress, wethAddress);
+        (address token0, address token1) = utils.sortTokens(
+            usdtAddress,
+            wethAddress
+        );
         pool = Pool(factory.createPool(token0, token1));
     }
-    
-    function _labelContracts() internal{
+
+    function _labelContracts() internal {
         vm.label(address(weth), "WETH");
         vm.label(address(usdt), "USDT");
         vm.label(address(pool), "[WETH/USDT]");
