@@ -69,23 +69,25 @@ contract Pool is IPool, LP {
         address token,
         uint256 amount
     ) external checkTokenInside(token) returns (uint256 amountOut) {
+        if (amount == 0) revert AMOUNT_EQUALS_ZERO();
+        if (amount > IERC20(token).balanceOf(msg.sender))
+            revert INSUFFICIENT_BALANCE();
         address token0 = s_token0;
         address token1 = s_token1;
-        if (amount == 0) revert AMOUNT_EQUALS_ZERO();
         amountOut = _quote(token, amount);
         address swap_token = token == token0 ? token1 : token0;
         if (IERC20(swap_token).balanceOf(address(this)) / 2 < amountOut)
             revert NOT_ENOUGH_BALANCE(); // / 2 so the user couldn't swap half of the pool reserve in 1 swap
-        uint256 amountWithFees = (amountOut * LP_FEE) / 10000;
+        uint256 amountWithFees = amount + (amount * LP_FEE) / 10000;
         if (swap_token == token0) {
             s_reserve0 -= amountOut;
-            s_reserve1 += amount;
+            s_reserve1 += amountWithFees;
         } else {
-            s_reserve0 += amount;
+            s_reserve0 += amountWithFees;
             s_reserve1 -= amountOut;
         }
         emit Swap(swap_token, token, amountWithFees, amountOut);
-        p_transferFrom(token, msg.sender, address(this), amount);
+        p_transferFrom(token, msg.sender, address(this), amountWithFees);
         p_transfer(swap_token, msg.sender, amountWithFees);
     }
 
@@ -114,7 +116,7 @@ contract Pool is IPool, LP {
         _reserve1 += amount1;
         (s_reserve0, s_reserve1) = (_reserve0, _reserve1);
 
-        kLast = s_reserve0 * s_reserve1; // maybe check if updating _reserve0 would be cheaper
+        kLast = _reserve0 * _reserve1;
         emit Deposit(address(this), liquidity, amount0, amount1);
         p_transferFrom(s_token0, msg.sender, address(this), amount0);
         p_transferFrom(s_token1, msg.sender, address(this), amount1);
@@ -124,7 +126,8 @@ contract Pool is IPool, LP {
         uint256 lpAmount
     ) external returns (uint256 amount0, uint256 amount1) {
         uint _totalSupply = totalSupply();
-        if (balanceOf(msg.sender) < lpAmount || _totalSupply == 0) revert INSUFFICIENT_BALANCE();
+        if (balanceOf(msg.sender) < lpAmount || _totalSupply == 0)
+            revert INSUFFICIENT_BALANCE();
         p_transferFrom(address(this), msg.sender, address(this), lpAmount);
         (uint _reserve0, uint _reserve1) = (s_reserve0, s_reserve1);
         amount0 = (lpAmount * _reserve0) / _totalSupply;
@@ -136,7 +139,7 @@ contract Pool is IPool, LP {
         _reserve1 -= amount1;
         (s_reserve0, s_reserve1) = (_reserve0, _reserve1);
 
-        kLast = s_reserve0 * s_reserve1; // maybe check if updating _reserve0 would be cheaper
+        kLast = _reserve0 * _reserve1;
         emit Withdraw(address(this), lpAmount, amount0, amount1);
         p_transfer(s_token0, msg.sender, amount0);
         p_transfer(s_token1, msg.sender, amount1);

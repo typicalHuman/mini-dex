@@ -8,14 +8,17 @@ import {Pool} from "../src/Pool.sol";
 import {Utilities} from "./utils/Utilities.sol";
 contract BaseTest is Test {
     uint constant MINIMUM_LIQUIDITY = 10 ** 3;
-    uint constant INITIAL_USDT_BALANCE = 10000e6;
-    uint constant INITIAL_WETH_BALANCE = 100e18;
+    uint constant INITIAL_USDT_BALANCE = 1000000e6;
+    uint constant INITIAL_WETH_BALANCE = 10000e18;
 
     ERC20Mock public usdt;
     address public usdtAddress;
 
     ERC20Mock public weth;
     address public wethAddress;
+
+    address public poolToken0;
+    address public poolToken1;
 
     Factory public factory;
     Pool public pool;
@@ -47,11 +50,8 @@ contract BaseTest is Test {
         factory = new Factory();
 
         vm.startPrank(lp);
-        (address token0, address token1) = utils.sortTokens(
-            usdtAddress,
-            wethAddress
-        );
-        pool = Pool(factory.createPool(token0, token1));
+        (poolToken0, poolToken1) = utils.sortTokens(usdtAddress, wethAddress);
+        pool = Pool(factory.createPool(poolToken0, poolToken1));
     }
 
     function _labelContracts() internal {
