@@ -16,8 +16,9 @@ import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {Math} from "@openzeppelin/contracts/utils/math/Math.sol";
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
-// @title Base pool contract
-// @author typicalHuman
+/// @title  Main pool contract representing 2 assets.
+/// @author typicalHuman
+/// @notice Contract that allows you to stake/swap 2 assets.
 contract Pool is IPool, LP {
     using SafeERC20 for IERC20;
     using Math for uint;
@@ -44,6 +45,8 @@ contract Pool is IPool, LP {
     event Deposit(address pool, uint lpAmount, uint amount0, uint amount1);
     event Withdraw(address pool, uint lpAmount, uint amount0, uint amount1);
 
+    /// @notice Initializes pool.
+    /// @dev Tokens should be sorted in asc order.
     constructor(
         address token0,
         address token1
@@ -60,6 +63,11 @@ contract Pool is IPool, LP {
         _;
     }
 
+    /// @notice Swap 1 token to another.
+    /// @dev Token amount shouldn't be bigger than half of pool reserve.
+    /// @param token Input token.
+    /// @param amount Input token amount.
+    /// @return amountOut Amount out in second token.
     function swap(
         address token,
         uint256 amount
@@ -86,6 +94,11 @@ contract Pool is IPool, LP {
         p_transfer(swap_token, msg.sender, amountOut);
     }
 
+    /// @notice Stake tokens in pool
+    /// @dev If total supply is 0, it will mint MINIMUM_LIQUIDITY to prevent inflation attack
+    /// @param amount0 First token amount to stake
+    /// @param amount1 Second token amount to stake
+    /// @return liquidity Liquidity minted after stake. It will represent your share in this pool.
     function deposit(
         uint256 amount0,
         uint256 amount1
@@ -116,6 +129,11 @@ contract Pool is IPool, LP {
         p_transferFrom(s_token1, msg.sender, address(this), amount1);
     }
 
+    /// @notice Unstake shares back to tokens.
+    /// @dev You can't withdraw your shares into only 1 one of the tokens.
+    /// @param lpAmount Shares amount to withdraw.
+    /// @return amount0 Amount in token0 that was unstaked.
+    /// @return amount1 Amount in token1 that was unstaked.
     function withdraw(
         uint256 lpAmount
     ) external returns (uint256 amount0, uint256 amount1) {
@@ -139,6 +157,11 @@ contract Pool is IPool, LP {
         p_transfer(s_token1, msg.sender, amount1);
     }
 
+    /// @notice Get relative price in the second token.
+    /// @dev Pool can't be empty (totalSupply should be bigger than 0).
+    /// @param token Base token for which you want to quote the price.
+    /// @param amount Amount to quote in "token".
+    /// @return Relative price in second token.
     function quote(
         address token,
         uint256 amount
@@ -151,8 +174,8 @@ contract Pool is IPool, LP {
         return (s_token0, s_token1);
     }
 
-    // fee comes from swaps and not deposits
-    // takes 1/10 of swaps fee
+    /// @notice Fee comes from swaps and not deposits
+    /// @dev Takes 1/10 of swaps fee
     function mintFee(uint _reserve0, uint _reserve1) private {
         address feeTo = IFactory(factory).getProtocolBeneficiary();
         uint _kLast = kLast;
