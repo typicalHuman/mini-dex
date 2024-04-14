@@ -1,5 +1,5 @@
 # Factory
-[Git Source](https://github.com/typicalHuman/mini-dex/blob/acf28f18c2b98843f4a08cee3d9a411c878cfb3c/src\Factory.sol)
+[Git Source](https://github.com/typicalHuman/mini-dex/blob/17a070a04b17f7bc8f83d8447e027f6a248e4a0c/src\Factory.sol)
 
 **Inherits:**
 [IFactory](/src\interfaces\IFactory.sol\interface.IFactory.md)
