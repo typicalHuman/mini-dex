@@ -35,9 +35,16 @@ contract PoolDepositsTest is BaseTest {
         assertEq(pool.balanceOf(factory.getProtocolBeneficiary()), 0);
     }
 
-    function test_insufficientAmountDeposit() public {
+    function test_insufficientAmountDeposit1() public {
         vm.expectRevert(abi.encodeWithSelector(INSUFFICIENT_AMOUNT.selector));
         utils.depositAmounts(pool, 0, 0, lp);
+    }
+    function test_insufficientAmountDeposit2() public {
+        test_basicDeposit();
+        uint token0Amount = 3500e6;
+        uint token1Amount = 1000e18;
+        vm.expectRevert(abi.encodeWithSelector(INSUFFICIENT_AMOUNT.selector));
+        depositAmounts(token0Amount, token1Amount, lp);
     }
 
     function depositAmounts(

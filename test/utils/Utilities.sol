@@ -40,9 +40,16 @@ contract Utilities is Test {
         address from
     ) public returns (uint amountOut) {
         vm.startPrank(from);
-        ERC20(token).approve(address(pool), amount + (amount / 10000) * pool.LP_FEE());
+        ERC20(token).approve(address(pool), amountWFee(pool, amount));
         amountOut = pool.swap(token, amount);
         vm.stopPrank();
+    }
+
+    function amountWFee(
+        Pool pool,
+        uint amount
+    ) public view returns (uint) {
+        return amount + (amount / 10000) * pool.LP_FEE();
     }
 
     function sortTokens(

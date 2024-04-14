@@ -36,3 +36,4 @@ testPoolDeposits:; forge test --mc PoolDepositsTest -vvv
 testPoolWithdraws:; forge test --mc PoolWithdrawsTest -vv
 testPoolQuote:; forge test --mc PoolQuoteTest -vvv
 testPoolProtocolFee:; forge test --mc PoolProtocolFeeTest -vvv
+testPoolSwaps:; forge test --mc PoolSwapsTest -vvv
